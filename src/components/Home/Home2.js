@@ -4,10 +4,10 @@ import myImg from "../../Assets/avatar.svg";
 import Tilt from "react-parallax-tilt";
 import {
   AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
+  AiFillYoutube,
 } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn, FaDev } from "react-icons/fa";
+import { SiKaggle, SiTelegram, SiUpwork } from "react-icons/si";
 
 function Home2() {
   return (
@@ -19,36 +19,36 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I fell in love with programming and I have at least learnt
+              I fell in love with AI and machine learning, and I have at least learnt
               something, I think… 🤷‍♂️
               <br />
-              <br />I am fluent in classics like
+              <br />I am fluent in technologies like
               <i>
-                <b className="purple"> C++, Javascript and Go. </b>
+                <b className="purple"> Python, ReactJS, and JavaScript. </b>
               </i>
               <br />
               <br />
-              My field of Interest's are building new &nbsp;
+              My field of interest lies in building new
               <i>
-                <b className="purple">Web Technologies and Products </b> and
+                <b className="purple">AI-powered applications </b> and
                 also in areas related to{" "}
                 <b className="purple">
-                  Blockchain.
+                  Computer Vision, NLP, and MLOps.
                 </b>
               </i>
               <br />
               <br />
-              Whenever possible, I also apply my passion for developing products
-              with <b className="purple">Node.js</b> and
+              Whenever possible, I also apply my passion for developing solutions
+              with <b className="purple">PyTorch and TensorFlow</b> and
               <i>
                 <b className="purple">
                   {" "}
-                  Modern Javascript Library and Frameworks
+                  Modern AI and Web Frameworks
                 </b>
               </i>
-              &nbsp; like
+                like
               <i>
-                <b className="purple"> React.js and Next.js</b>
+                <b className="purple"> Flask, React.js, and Hugging Face Transformers</b>
               </i>
             </p>
           </Col>
@@ -67,42 +67,72 @@ function Home2() {
             <ul className="home-about-social-links">
               <li className="social-icons">
                 <a
-                  href="https://github.com/soumyajit4419"
+                  href="https://github.com/mrzaizai2k"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
+                  className="icon-colour home-social-icons"
                 >
                   <AiFillGithub />
                 </a>
               </li>
               <li className="social-icons">
                 <a
-                  href="https://twitter.com/Soumyajit4419"
+                  href="https://www.linkedin.com/in/baochiwork/"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <AiOutlineTwitter />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.linkedin.com/in/soumyajit4419/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
+                  className="icon-colour home-social-icons"
                 >
                   <FaLinkedinIn />
                 </a>
               </li>
               <li className="social-icons">
                 <a
-                  href="https://www.instagram.com/soumyajit4419"
+                  href="https://dev.to/mrzaizai2k"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
                 >
-                  <AiFillInstagram />
+                  <FaDev />
+                </a>
+              </li>
+              <li className="social-icons">
+                <a
+                  href="https://www.youtube.com/@mrzaizai2k-ai704"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="icon-colour home-social-icons"
+                >
+                  <AiFillYoutube />
+                </a>
+              </li>
+              <li className="social-icons">
+                <a
+                  href="https://t.me/Chibao_mrzaizai2k"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="icon-colour home-social-icons"
+                >
+                  <SiTelegram />
+                </a>
+              </li>
+              <li className="social-icons">
+                <a
+                  href="https://www.upwork.com/freelancers/~012aa38f4e6f69e36b?mp_source=share"
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="icon-colour home-social-icons"
+                >
+                  <SiUpwork  />
+                </a>
+              </li>
+              <li className="social-icons">
+                <a
+                  href="https://www.kaggle.com/maichibao"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="icon-colour home-social-icons"
+                >
+                  <SiKaggle />
                 </a>
               </li>
             </ul>

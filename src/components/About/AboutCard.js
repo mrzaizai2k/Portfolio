@@ -8,33 +8,32 @@ function AboutCard() {
       <Card.Body>
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
-            Hi Everyone, I am <span className="purple">Soumyajit Behera </span>
-            from <span className="purple"> Bhubaneswar, India.</span>
+            Hi Everyone, I am <span className="purple">Mai Chi Bao (Mrzaizai2k) </span>
+            from <span className="purple"> Viet Nam.</span>
             <br />
-            I am currently employed as a software developer at Juspay.
+            I am currently employed as a Senior Machine Learning Engineer and Data Science Team Leader at Nam A Bank.
             <br />
-            I have completed Integrated MSc (IMSc) in Maths and Computing at BIT
-            Mesra.
+            I have completed a BEng in Electronics - Telecommunications Engineering and am pursuing an MSc in Computer Science at Ho Chi Minh City University of Technology.
             <br />
             <br />
-            Apart from coding, some other activities that I love to do!
+            Apart from AI and ML, some other activities that I love to do!
           </p>
           <ul>
             <li className="about-activity">
-              <ImPointRight /> Playing Games
+              <ImPointRight /> Leading music club events
             </li>
             <li className="about-activity">
-              <ImPointRight /> Writing Tech Blogs
+              <ImPointRight /> Building AI-powered apps
             </li>
             <li className="about-activity">
-              <ImPointRight /> Travelling
+              <ImPointRight /> Exploring IoT and embedded systems
             </li>
           </ul>
 
           <p style={{ color: "rgb(155 126 172)" }}>
-            "Strive to build things that make a difference!"{" "}
+            "You want WEAPONS? BOOKS are the best weapon in the world. ARM YOURSELF!"{" "}
           </p>
-          <footer className="blockquote-footer">Soumyajit</footer>
+          <footer className="blockquote-footer">Mai Chi Bao</footer>
         </blockquote>
       </Card.Body>
     </Card>

@@ -1,0 +1,146 @@
+{
+  "basics": {
+    "name": "MAI CHI BAO",
+    "email": "chibao24.12.1999@gmail.com",
+    "phone": "+84 327 620 475",
+    "website": "https://mrzaizai2k.github.io",
+    "location": {
+      "city": "Ho Chi Minh City",
+      "countryCode": "Viet Nam"
+    },
+    "profiles": [
+      {
+        "network": "Dev.to",
+        "username": "Mrzaizai2k",
+        "url": "https://dev.to/mrzaizai2k"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "Bao Mai",
+        "url": "https://www.linkedin.com/in/baochiwork/"
+      },
+      {
+        "network": "GitHub",
+        "username": "Mrzaizai2k",
+        "url": "https://github.com/mrzaizai2k"
+      },
+      {
+        "network": "YouTube",
+        "username": "Mrzaizai2k",
+        "url": "https://www.youtube.com/@mrzaizai2k-ai704"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Nam A Bank",
+      "position": "Senior Machine Learning Engineer - Data Science Team Leader",
+      "website": "",
+      "startDate": "2023",
+      "endDate": "Present",
+      "summary": "",
+      "highlights": [
+        "Fine-tuned a Vision LLM (Qwen2VL) model for golf scorecard extraction, achieving 83% higher accuracy than traditional OCR with just 30 samples.",
+        "Developed an advanced RAG-based chatbot with LLM and model routing, reducing latency and cost by up to 100x.",
+        "Building a facial recognition system with anti-spoofing functionality for 1.8M+ customers, aligning with Decision No. 2345 of the State Bank of Vietnam.",
+        "Lead on Customer churn prediction with LightGBM offers over 78% accuracy while predicting 28.5% of the bank's overall customers.",
+        "Keynote Speaker at International Conference on Economics 2023 about Big Data",
+        "Apply DevOps, MLOps to automate the processes in Linux environment"
+      ]
+    },
+    {
+      "company": "LONG Centre for Educational Development",
+      "position": "Algorithm Engineer",
+      "website": "",
+      "startDate": "2022",
+      "endDate": "2023",
+      "summary": "",
+      "highlights": [
+        "Researching on Point Set Registration with Deep Learning approaches",
+        "Compare techniques of Graph-based, Convolutional-based, and Pointwise MLP methods",
+        "PointCNN | PointNet++ | DGCNN | LDGCNN | FCGF feature extraction model"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Ho Chi Minh City University of Technology",
+      "area": "Computer Science",
+      "studyType": "M.S.",
+      "startDate": "2024",
+      "endDate": "2024 - Present",
+      "gpa": null,
+      "courses": []
+    },
+    {
+      "institution": "Ho Chi Minh City University of Technology",
+      "area": "Electronics - Telecommunications Engineering",
+      "studyType": "B.E.",
+      "startDate": "2017",
+      "endDate": "2017 - 2022",
+      "gpa": "7.6/10",
+      "courses": []
+    }
+  ],
+  "skills": [],
+  "languages": [],
+  "interests": [],
+  "references": [],
+  "publications": [],
+  "presentations": [],
+  "teaching": [],
+  "achievements": [
+    {
+      "name": "Received a promotion to the position of Senior at Nam A Bank.",
+      "startDate": "2024"
+    },
+    {
+      "name": "Award Effective Contribution in Nam A Bank (3 consecutive quarters)",
+      "startDate": "2023"
+    },
+    {
+      "name": "7.5 / 9.0 (IELTS)",
+      "startDate": "2022"
+    },
+    {
+      "name": "910 / 990 (TOEIC)",
+      "startDate": "2020"
+    }
+  ],
+  "activities": [
+    {
+      "organization": "Mrzaizai2k - AI",
+      "position": "Youtuber",
+      "website": "https://www.youtube.com/@mrzaizai2k-ai704",
+      "startDate": "2022",
+      "endDate": "Present",
+      "summary": "",
+      "highlights": [
+        "Host a Youtube channel specialized in AI, ML and DL",
+        "7 videos, 212 subscribers and 13392 views"
+      ]
+    },
+    {
+      "organization": "ICE 2023",
+      "position": "Keynote Speaker",
+      "website": "https://youtu.be/2nnarNmz9tk?si=KSaZ4TC9GZFDc3Jm",
+      "startDate": "2023",
+      "endDate": "",
+      "summary": "",
+      "highlights": ["As a Nam A Bank representative, my speech, 'Big Data: The Fire of the 21st Century?', highlighted Big Data's role in modern banking"]
+    },
+    {
+      "organization": "Bach Khoa Music Club – Ho Chi Minh City University of Technology",
+      "position": "Club President",
+      "website": "https://www.facebook.com/BKMC.HCMUT",
+      "startDate": "2018",
+      "endDate": "2020",
+      "summary": "",
+      "highlights": [
+        "Planning and Organizing BK's Got Talent 2018 | Xem Xém OLD | Lơ show… of more than 100 persons each",
+        "Over 2000 new fan page followers during my time in charge"
+      ]
+    }
+  ],
+  "portfolio": []
+}

@@ -2,11 +2,8 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
-import leaf from "../../Assets/Projects/leaf.png";
-import emotion from "../../Assets/Projects/emotion.png";
 import editor from "../../Assets/Projects/codeEditor.png";
 import chatify from "../../Assets/Projects/chatify.png";
-import suicide from "../../Assets/Projects/suicide.png";
 import bitsOfCode from "../../Assets/Projects/blog.png";
 import "./Projects.css";
 
@@ -26,13 +23,13 @@ function Projects() {
             <ProjectCard
               imgPath={chatify}
               isBlog={false}
-              title="Chatify"
-              description="Personal Chat Room or Workspace to share resources and hangout with friends build with react.js, Material-UI, and Firebase. Have features which allows user for realtime messaging, image sharing as well as supports reactions on messages."
-              ghLink="https://github.com/soumyajit4419/Chatify"
-              demoLink="https://youtu.be/2nnarNmz9tk?si=x0bX8oCv3jN4rNtv"
-              blogLink="https://dev.to/mrzaizai2k/how-i-aced-my-llm-interview-building-a-rag-chatbot-2p6f"
-              skills={["React.js", "Material-UI", "Firebase"]}
-              deliverables={["Chat App", "Real-time Messaging"]}
+              title="Multi-language Invoice Extraction"
+              description={[
+                "The Invoice Information Extractor is a web app for businesses and individuals to automate invoice data extraction and management. Using OCR and NLP, it enables easy invoice uploads, data extraction, and report generation. Built with Reactjs and Python, it offers a user-friendly interface to view, edit, and delete invoice details."
+              ]}
+              blogLink="https://dev.to/mrzaizai2k/practical-approaches-to-key-information-extraction-part-2-a6o"
+              skills={["Multimodal Large Language Model", "MongoDB", "AWS Application", "React.js", "OCR", "Docker"]}
+              deliverables={[]}
             />
           </Col>
 
@@ -40,13 +37,12 @@ function Projects() {
             <ProjectCard
               imgPath={bitsOfCode}
               isBlog={false}
-              title="Bits-0f-C0de"
-              description="My personal blog page build with Next.js and Tailwind Css which takes the content from makdown files and renders it using Next.js. Supports dark mode and easy to write blogs using markdown."
-              ghLink="https://github.com/soumyajit4419/Bits-0f-C0de"
-              demoLink="https://blogs.soumya-jit.tech/"
-              blogLink="https://soumya-jit.tech/bits-of-code-blog"
-              skills={["Next.js", "Tailwind CSS", "Markdown"]}
-              deliverables={["Blog Platform", "Dark Mode"]}
+              title="Automatic scoring of handwritten test papers"
+              description={["Extract handwritten information like name, and student ID and then recognize them with CRNN-CTC-Attention. Using lexicon search on the class list to help teachers on updating scores faster"]}
+              ghLink="https://github.com/mrzaizai2k/Automated-scoring-of-handwritten-test-papers"
+              demoLink="https://www.youtube.com/watch?v=fqVMa03iPVE"
+              skills={["Computer Vision", "Handwritten text", "CRNN", "Deep Learning", "TensorFlow", "CTC Loss", "Algorithm Development"]}
+              deliverables={[]}
             />
           </Col>
 
@@ -54,57 +50,96 @@ function Projects() {
             <ProjectCard
               imgPath={editor}
               isBlog={false}
-              title="Editor.io"
-              description="Online code and markdown editor build with react.js. Online Editor which supports html, css, and js code with instant view of website. Online markdown editor for building README file which supports GFM, Custom Html tags with toolbar and instant preview.Both the editor supports auto save of work using Local Storage"
-              ghLink="https://github.com/soumyajit4419/Editor.io"
-              demoLink="https://editor.soumya-jit.tech/"
-              blogLink="https://soumya-jit.tech/editor-io-blog"
-              skills={["React.js", "HTML", "CSS", "JavaScript"]}
-              deliverables={["Code Editor", "Markdown Editor"]}
+              title="LLM with RAG System"
+              description={["System answers questions using data from files, reading math formulas, PDFs, DOCX, text, slides, and more. It leverages fine-tuned models to extract and process information accurately, supporting diverse file formats. Outputs are concise and structured, ideal for real-time queries or complex analysis."]}
+              ghLink="https://github.com/mrzaizai2k/LLM-with-RAG/blob/main/README.md"
+              demoLink=""
+              blogLink=""
+              skills={["Chatbot", "Retrieval Augmented Generation", "Large Language Model", "Model Routing", "Docker", "MLops"]}
+              deliverables={[]}
             />
           </Col>
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={leaf}
+              imgPath={editor}
               isBlog={false}
-              title="Plant AI"
-              description="Used the plant disease dataset from Kaggle and trained a image classifer model using 'PyTorch' framework using CNN and Transfer Learning with 38 classes of various plant leaves. The model was successfully able to detect diseased and healthy leaves of 14 unique plants. I was able to achieve an accuracy of 98% by using Resnet34 pretrained model."
-              ghLink="https://github.com/soumyajit4419/Plant_AI"
-              demoLink="https://plant49-ai.herokuapp.com/"
-              blogLink="https://soumya-jit.tech/plant-ai-blog"
-              skills={["PyTorch", "CNN", "Transfer Learning"]}
-              deliverables={["Image Classifier", "Plant Disease Detection"]}
+              title="MCP Server"
+              description={["MCP servers provide structured data to AI, improving context awareness. The fastapi-mcp package simplifies FastAPI-based MCP server creation. My MCP server, linked to Claude Desktop on Windows, offers stock analysis, file search, transfer, editing, and task management endpoints, ensuring efficient, accurate data processing for real-time insights."]}
+              ghLink="https://github.com/mrzaizai2k/LLM-with-RAG/blob/main/README.md"
+              demoLink="https://www.youtube.com/watch?v=spJoWKntX4o"
+              blogLink="https://dev.to/mrzaizai2k/building-an-mcp-server-with-fastapi-mcp-for-stock-analysis-a-step-by-step-guide-de6"
+              skills={["MCP", "Stock Market", "Multimodal Large Language Model", "Automation", "File Management", "FastAPI"]}
+              deliverables={[]}
             />
           </Col>
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={suicide}
+              imgPath={editor}
               isBlog={false}
-              title="Ai For Social Good"
-              description="Using 'Natural Launguage Processing' for the detection of suicide-related posts and user's suicide ideation in cyberspace  and thus helping in sucide prevention."
-              ghLink="https://github.com/soumyajit4419/AI_For_Social_Good"
-              demoLink="https://youtu.be/XCeJUnfwDTg?si=iWl_NQgkmbAKIIPa"
-              blogLink="https://soumya-jit.tech/ai-social-good-blog"
-              skills={["NLP", "Python"]}
-              deliverables={["Suicide Detection Model"]}
+              title="Vietnamese License Plate Recognition"
+              description={["The program for recognizing license plates in the parking lot, which was utilized for both 1 and 2 rows of Vietnamese license plates. Using the KNN algorithm and the OpenCV image processing library."]}
+              ghLink="https://github.com/mrzaizai2k/VIETNAMESE_LICENSE_PLATE"
+              demoLink="https://www.youtube.com/watch?v=7erlCp6d5w8"
+              blogLink="https://github.com/mrzaizai2k/License-Plate-Recognition-YOLOv7-and-CNN"
+              skills={["Computer Vision", "OpenCV", "Licensing Plate Extraction", "Deep Learning", "Image Processing", "YOLO"]}
             />
           </Col>
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={emotion}
+              imgPath={editor}
               isBlog={false}
-              title="Face Recognition and Emotion Detection"
-              description="Trained a CNN classifier using 'FER-2013 dataset' with Keras and tensorflow backened. The classifier sucessfully predicted the various types of emotions of human. And the highest accuracy obtained with the model was 60.1%. Then used Open-CV to detect the face in an image and then pass the face to the classifer to predict the emotion of a person."
-              ghLink="https://github.com/soumyajit4419/Face_And_Emotion_Detection"
-              demoLink="https://youtu.be/abcdef123456"
-              blogLink="https://soumya-jit.tech/emotion-detection-blog"
-              skills={["Keras", "TensorFlow", "Open-CV"]}
-              deliverables={["Emotion Classifier", "Face Detection"]}
+              title="Stock Assistant Bot"
+              description={["This bot is designed to assist you with various stock-related tasks and analyses. Whether you want to calculate the payback time for a stock, find support and resistance levels, or receive warnings about specific market conditions, this bot has you covered."]}
+              ghLink="https://github.com/mrzaizai2k/stock_price_4_fun"
+              demoLink=""
+              blogLink="https://dev.to/mrzaizai2k/how-i-build-my-personal-assistant-4j8b"
+              skills={["Telegram API", "Chatbot", "Stock Market", "Large Language Model", "AI Speech-to-Text", "Mobile App"]}
             />
           </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={editor}
+              isBlog={false}
+              title="Golf Score Card Reader"
+              description={["Computer vision app employs a fine-tuned QWEN2VL model to extract player names and scores from golf score card images. Fine-tuning on diverse score card datasets optimizes accuracy for varied layouts, fonts, and image qualities, achieving 95%+ precision.",
+                        "Preprocessing and OCR enhance text recognition. Fine-tuning mitigates challenges like misaligned text or handwriting, ensuring robust performance. Outputs structured JSON for real-time or bulk processing, ideal for tournaments. Multilingual support is feasible with further fine-tuning."]}
+              blogLink="https://dev.to/mrzaizai2k/how-to-finetune-qwen2-vl-model-on-custom-dataset-3615"
+              ghLink="https://github.com/mrzaizai2k/golf_score_ocr"
+              skills={["Large Language Model", "Multimodal Large Language Model", "Handwritten text", "Computer Vision", "Finetuning"]}
+              deliverables={[]}
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={editor}
+              isBlog={false}
+              title="Coughvid-19 Classification"
+              description={["Classifies Covid and non-Covid patients using cough sounds via CRNN-Attention model.", "Converts sound data into images for analysis.", "Analyzes differences in cough energy, distribution, breath sound, and duration.", "Leverages deep learning for accurate classification."]}
+              blogLink="https://www.youtube.com/watch?v=r1xkyvSUIaw"
+              ghLink="https://github.com/mrzaizai2k/Coughvid-19-CRNN-attention"
+              skills={["Deep Learning", "Classification", "Feature Extraction", "Python", "TensorFlow", "Image Processing", "Computer Vision", "Data Analysis"]}
+              deliverables={[]}
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={editor}
+              isBlog={false}
+              title="Teachable Machine AI"
+              description={["Guides creation of a simple AI project using Teachable Machine.", "Trains models to recognize images, sounds, and poses without coding.", "Ideal for beginners to build ML models for sites and apps."]}
+              blogLink="https://youtu.be/pZZNT2Rn2bI?si=IMH_DoZSgAa2T3jZ"
+              ghLink="https://github.com/mrzaizai2k/Teachable-Machine-with-python"
+              skills={["Python", "Classification", "Computer Vision", "Education"]}
+              deliverables={[]}
+            />
+          </Col>
+
         </Row>
       </Container>
     </Container>

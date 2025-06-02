@@ -71,7 +71,13 @@ function ProjectCards(props) {
         <Card.Title>{props.title}</Card.Title>
         
         <Card.Text className="card-description">
-          {props.description}
+          {props.description && Array.isArray(props.description) ? (
+            props.description.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))
+          ) : (
+            props.description
+          )}
         </Card.Text>
         
         <div className="skills-tags">
@@ -85,9 +91,11 @@ function ProjectCards(props) {
           ))}
         </div>
         <div className="button-container">
-          <Button className="project-btn" variant="primary" href={props.ghLink} target="_blank">
-            <BsGithub /> {props.isBlog ? "Blog" : "GitHub"}
-          </Button>
+          {props.ghLink && (
+            <Button className="project-btn" variant="primary" href={props.ghLink} target="_blank">
+              <BsGithub /> {props.isBlog ? "Blog" : "GitHub"}
+            </Button>
+          )}
           {props.blogLink && (
             <Button className="project-btn" variant="primary" href={props.blogLink} target="_blank">
               <FaDev /> Blog

@@ -1,0 +1,102 @@
+.project-section {
+  position: relative;
+  padding: 50px 0;
+  background: #151515;
+}
+
+.project-heading {
+  font-size: 2.5rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.project-heading .purple {
+  color: #c770f0;
+}
+
+.project-card {
+  margin-bottom: 30px;
+}
+
+.project-card-view {
+  background: #1c1c1c;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.project-card-view:hover {
+  transform: translateY(-5px);
+}
+
+.project-card-view img {
+  border-radius: 10px 10px 0 0;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-card-view .card-body {
+  padding: 20px;
+}
+
+.project-card-view .card-title {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.card-description {
+  text-align: justify;
+}
+
+.project-card-view .card-text {
+  color: #d3d3d3;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.skills-tags, .deliverables-tags {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.tag {
+  background: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+}
+
+.youtube-embed {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.youtube-embed iframe {
+  border-radius: 5px;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.project-btn {
+  background: #c770f0;
+  border: none;
+  margin-right: 15px;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+}
+
+.project-btn:hover {
+  background: #a55cc3;
+}

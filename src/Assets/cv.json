@@ -34,6 +34,7 @@
   "work": [
     {
       "company": "Nam A Bank",
+      "url": "https://www.namabank.com.vn/",
       "position": "Senior Machine Learning Engineer - Data Science Team Leader",
       "website": "",
       "startDate": "2023",
@@ -60,24 +61,40 @@
         "Compare techniques of Graph-based, Convolutional-based, and Pointwise MLP methods",
         "PointCNN | PointNet++ | DGCNN | LDGCNN | FCGF feature extraction model"
       ]
+    },
+    {
+      "company": "VTNET – Viettel Telecom",
+      "url": "https://www.vietteltelecom.vn/vx/",
+      "position": "Engineering Intern (Radio Optimization Department)",
+      "website": "",
+      "startDate": "2020",
+      "endDate": "2021",
+      "summary": "",
+      "highlights": [
+        "Researched OFDM, Unlicensed IoT, NB-IoT, 5G, and 4G technologies.",
+        "Developed automated 4G parameter updates using Tableau.",
+        "Visited Base Transceiver Stations to study 5G, RRU, BBU, and Antenna systems."
+      ]
     }
   ],
   "education": [
     {
       "institution": "Ho Chi Minh City University of Technology",
+      "url": "https://hcmut.edu.vn/en/",
       "area": "Computer Science",
       "studyType": "M.S.",
       "startDate": "2024",
-      "endDate": "2024 - Present",
+      "endDate": "Present",
       "gpa": null,
       "courses": []
     },
     {
       "institution": "Ho Chi Minh City University of Technology",
+      "url": "https://hcmut.edu.vn/en/",
       "area": "Electronics - Telecommunications Engineering",
       "studyType": "B.E.",
       "startDate": "2017",
-      "endDate": "2017 - 2022",
+      "endDate": "2022",
       "gpa": "7.6/10",
       "courses": []
     }
@@ -111,7 +128,7 @@
     {
       "organization": "Mrzaizai2k - AI",
       "position": "Youtuber",
-      "website": "https://www.youtube.com/@mrzaizai2k-ai704",
+      "url": "https://www.youtube.com/@mrzaizai2k-ai704",
       "startDate": "2022",
       "endDate": "Present",
       "summary": "",
@@ -121,9 +138,21 @@
       ]
     },
     {
+      "organization": "Dev.to",
+      "position": "Blogger",
+      "url": "https://dev.to/mrzaizai2k",
+      "startDate": "2024",
+      "endDate": "Present",
+      "summary": "",
+      "highlights": [
+        "Write technical blogs about AI, ML, and DL.",
+        "Published 26 posts with 8211 total post views and 2645 followers."
+      ]
+    },
+    {
       "organization": "ICE 2023",
       "position": "Keynote Speaker",
-      "website": "https://youtu.be/2nnarNmz9tk?si=KSaZ4TC9GZFDc3Jm",
+      "url": "https://youtu.be/2nnarNmz9tk?si=KSaZ4TC9GZFDc3Jm",
       "startDate": "2023",
       "endDate": "",
       "summary": "",
@@ -132,7 +161,7 @@
     {
       "organization": "Bach Khoa Music Club – Ho Chi Minh City University of Technology",
       "position": "Club President",
-      "website": "https://www.facebook.com/BKMC.HCMUT",
+      "url": "https://www.facebook.com/BKMC.HCMUT",
       "startDate": "2018",
       "endDate": "2020",
       "summary": "",

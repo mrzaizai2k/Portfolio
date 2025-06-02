@@ -11,7 +11,12 @@
   -ms-user-select: text;
 }
 
-/* Header Section */
+#tsparticles {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .resume-header {
   max-width: 1000px;
   margin: 0 auto 40px auto;
@@ -28,7 +33,6 @@
   text-transform: uppercase;
 }
 
-/* Download Button and Contact Info - Centered */
 .download-contact-section {
   max-width: 1000px;
   margin: 0 auto 60px auto;
@@ -37,8 +41,8 @@
 }
 
 .download-btn {
-  background-color: #00d4ff;
-  border-color: #00d4ff;
+  background-color: #ffffff;
+  border-color: #ffffff;
   color: #1a1a2e;
   font-size: 0.9rem;
   font-weight: 600;
@@ -52,8 +56,8 @@
 }
 
 .download-btn:hover {
-  background-color: #0099cc;
-  border-color: #0099cc;
+  background-color: #e0e0e0;
+  border-color: #e0e0e0;
   transform: translateY(-1px);
   color: #1a1a2e;
   text-decoration: none;
@@ -66,17 +70,16 @@
 }
 
 .contact-info a {
-  color: #00d4ff;
+  color: #ffffff;
   text-decoration: none;
   cursor: pointer;
 }
 
 .contact-info a:hover {
-  color: #ff6f61;
+  color: #ad75d3;
   text-decoration: underline;
 }
 
-/* Content Sections */
 .content-section {
   max-width: 1000px;
   margin: 0 auto 80px auto;
@@ -93,7 +96,6 @@
   text-align: center;
 }
 
-/* Experience Entries */
 .experience-entry {
   margin-bottom: 40px;
 }
@@ -137,41 +139,69 @@
 
 .bullet-point {
   font-size: 1.2rem;
-  color: #00d4ff;
+  color: #ffffff;
   font-weight: bold;
 }
 
 .company-description-col {
   padding-left: 20px;
+  text-align: left;
 }
 
 .company-name {
-  font-size: 0.9rem;
-  color: #b0b0b0;
+  font-size: 1.1rem;
+  color: #ffffff;
   font-weight: 600;
   margin-bottom: 15px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.company-link {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.company-link:hover {
+  color: #ad75d3;
+  text-decoration: underline;
+}
+
+.link-icon {
+  font-size: 0.9rem;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.link-icon:hover {
+  color: #ad75d3;
 }
 
 .job-description {
   font-size: 0.95rem;
   color: #d0d0d0;
   line-height: 1.6;
+  text-align: left;
 }
 
 .job-description a {
-  color: #00d4ff;
+  color: #ffffff;
   text-decoration: none;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .job-description a:hover {
-  color: #ff6f61;
+  color: #ad75d3;
   text-decoration: underline;
 }
 
-/* Bullet points for job descriptions */
 .highlights-list {
   list-style: none;
   padding: 0;
@@ -185,31 +215,18 @@
   font-size: 0.95rem;
   color: #d0d0d0;
   line-height: 1.6;
+  text-align: left;
 }
 
 .highlights-list li:before {
   content: "•";
-  color: #00d4ff;
+  color: #ffffff;
   font-weight: bold;
   position: absolute;
   left: 0;
   top: 0;
 }
 
-/* Profile links styling */
-.profile-link {
-  color: #00d4ff;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 0.95rem;
-}
-
-.profile-link:hover {
-  color: #ff6f61;
-  text-decoration: underline;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
   .resume-section {
     padding: 30px 15px;
@@ -245,6 +262,7 @@
   
   .company-description-col {
     padding-left: 15px;
+    text-align: left;
   }
   
   .content-section {
@@ -253,16 +271,16 @@
   
   .highlights-list li {
     padding-left: 15px;
+    text-align: left;
   }
 }
 
-/* Text selection styling */
 ::selection {
-  background-color: #00d4ff;
+  background-color: #ffffff;
   color: #1a1a2e;
 }
 
 ::-moz-selection {
-  background-color: #00d4ff;
+  background-color: #ffffff;
   color: #1a1a2e;
 }

@@ -142,6 +142,32 @@ function Projects() {
             />
           </Col>
 
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={editor}
+              isBlog={false}
+              title="Maze Solver Robot"
+              description={["Arduino project using Arduino Uno, HC-SR04 ultrasonic sensor, and four DC motors with AFMotor library. Navigates mazes by measuring distances ahead and on sides. Executes stop, forward, backward, left, and right movements based on surroundings. Ideal for robotics enthusiasts and educational tutorials."]}
+              demoLink="https://www.youtube.com/watch?v=2NqCVy31Y34&t=78s"
+              ghLink="https://github.com/mrzaizai2k/Wall-following-car-with-Arduino"
+              skills={["Arduino", "Robotics", "Ultrasonic Sensor", "DC Motors", "Maze Solving", "Embedded Systems"]}
+              deliverables={[]}
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={editor}
+              isBlog={false}
+              title="Wi-Fi LED Control"
+              description={["This project enables controlling an LED via an Android app using Wi-Fi, integrating NodeMCU and Arduino Uno. The app sends commands to NodeMCU, which communicates with Arduino Uno to toggle the LED. Data feedback is sent to the app, displaying LED status in real-time."]}
+              demoLink="https://www.youtube.com/watch?v=Cg5OwiP-Yvc&t=15s"
+              ghLink="https://github.com/mrzaizai2k/ARUNO_NodeMCU_MIT-APP_LEDon"
+              skills={["Arduino", "NodeMCU", "Wi-Fi", "MIT App Inventor", "IoT", "Embedded Systems"]}
+              deliverables={[]}
+            />
+          </Col>
+
         </Row>
       </Container>
     </Container>

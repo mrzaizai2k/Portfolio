@@ -3,8 +3,10 @@ import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 import editor from "../../Assets/Projects/codeEditor.png";
-import chatify from "../../Assets/Projects/chatify.png";
-import bitsOfCode from "../../Assets/Projects/blog.png";
+import golf from "../../Assets/Projects/golf.png";
+import invoice from "../../Assets/Projects/invoice.png";
+import llm_rag from "../../Assets/Projects/llm_rag.png";
+import stockbot from "../../Assets/Projects/stockbot.png";
 import "./Projects.css";
 
 function Projects() {
@@ -21,7 +23,7 @@ function Projects() {
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={chatify}
+              imgPath={invoice}
               isBlog={false}
               title="Multi-language Invoice Extraction"
               description={[
@@ -35,7 +37,7 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={bitsOfCode}
+              imgPath={editor}
               isBlog={false}
               title="Automatic scoring of handwritten test papers"
               description={["Extract handwritten information like name, and student ID and then recognize them with CRNN-CTC-Attention. Using lexicon search on the class list to help teachers on updating scores faster"]}
@@ -48,7 +50,7 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={editor}
+              imgPath={llm_rag}
               isBlog={false}
               title="LLM with RAG System"
               description={["System answers questions using data from files, reading math formulas, PDFs, DOCX, text, slides, and more. It leverages fine-tuned models to extract and process information accurately, supporting diverse file formats. Outputs are concise and structured, ideal for real-time queries or complex analysis."]}
@@ -89,7 +91,7 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={editor}
+              imgPath={stockbot}
               isBlog={false}
               title="Stock Assistant Bot"
               description={["This bot is designed to assist you with various stock-related tasks and analyses. Whether you want to calculate the payback time for a stock, find support and resistance levels, or receive warnings about specific market conditions, this bot has you covered."]}
@@ -102,7 +104,7 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={editor}
+              imgPath={golf}
               isBlog={false}
               title="Golf Score Card Reader"
               description={["Computer vision app employs a fine-tuned QWEN2VL model to extract player names and scores from golf score card images. Fine-tuning on diverse score card datasets optimizes accuracy for varied layouts, fonts, and image qualities, achieving 95%+ precision.",
@@ -120,7 +122,7 @@ function Projects() {
               isBlog={false}
               title="Coughvid-19 Classification"
               description={["Classifies Covid and non-Covid patients using cough sounds via CRNN-Attention model.", "Converts sound data into images for analysis.", "Analyzes differences in cough energy, distribution, breath sound, and duration.", "Leverages deep learning for accurate classification."]}
-              blogLink="https://www.youtube.com/watch?v=r1xkyvSUIaw"
+              demoLink="https://www.youtube.com/watch?v=r1xkyvSUIaw"
               ghLink="https://github.com/mrzaizai2k/Coughvid-19-CRNN-attention"
               skills={["Deep Learning", "Classification", "Feature Extraction", "Python", "TensorFlow", "Image Processing", "Computer Vision", "Data Analysis"]}
               deliverables={[]}
@@ -133,7 +135,7 @@ function Projects() {
               isBlog={false}
               title="Teachable Machine AI"
               description={["Guides creation of a simple AI project using Teachable Machine.", "Trains models to recognize images, sounds, and poses without coding.", "Ideal for beginners to build ML models for sites and apps."]}
-              blogLink="https://youtu.be/pZZNT2Rn2bI?si=IMH_DoZSgAa2T3jZ"
+              demoLink="https://youtu.be/pZZNT2Rn2bI?si=IMH_DoZSgAa2T3jZ"
               ghLink="https://github.com/mrzaizai2k/Teachable-Machine-with-python"
               skills={["Python", "Classification", "Computer Vision", "Education"]}
               deliverables={[]}

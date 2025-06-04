@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Container, Row, Col } from "react-bootstrap";
 import homeLogo from "../../Assets/Mrzaizai2k_home_1.png";
 import Particle from "../Particle";
@@ -9,6 +10,9 @@ function Home() {
   return (
     <section>
       <Container fluid className="home-section" id="home">
+        <Helmet>
+          <title>Mrzaizai2k | Home</title>
+        </Helmet>
         <Particle />
         <Container className="home-content">
           <Row>

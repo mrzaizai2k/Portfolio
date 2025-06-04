@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/profile.png";
 import Tilt from "react-parallax-tilt";
@@ -12,6 +13,9 @@ import { SiKaggle, SiTelegram, SiUpwork } from "react-icons/si";
 function Home2() {
   return (
     <Container fluid className="home-about-section" id="about">
+      <Helmet>
+        <title>Mrzaizai2k | Home</title>
+      </Helmet>
       <Container>
         <Row>
           <Col md={8} className="home-about-description">

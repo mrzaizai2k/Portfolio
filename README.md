@@ -1,29 +1,29 @@
-# Portfolio Website - v2.0
+
+# Portfolio Website
 [mrzaizai2k.xyz](https://mrzaizai2k.xyz/)
 
 ![Demo](./Images/readme-img1.png)
 
 [![Built with Love](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
-[![Made with JavaScript](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
+[![JavaScript](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 [![Open Source](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
 
 🔹 [Report Bug](https://github.com/mrzaizai2k/Portfolio/issues) 🔹 [Request Feature](https://github.com/mrzaizai2k/Portfolio/issues)
 
 ## Table of Contents
 - [About](#about)
-- [Built With](#built-with)
+- [Tech Stack](#tech-stack)
 - [Features](#features)
-- [Getting Started](#getting-started)
-- [Installation and Setup](#installation-and-setup)
-- [Docker Setup](#docker-setup)
-- [Cloudflare Tunnel Setup](#cloudflare-tunnel-setup)
-- [Usage Instructions](#usage-instructions)
+- [Setup](#setup)
+- [Docker](#docker)
+- [Cloudflare Tunnel](#cloudflare-tunnel)
+- [Usage](#usage)
 - [Support](#support)
 
 ## About
-My personal portfolio [mrzaizai2k.xyz](https://mrzaizai2k.xyz/) showcases my projects, resume, and technical skills. Fork this repo to customize it, and please credit by linking to [soumyajit](https://soumyajit.vercel.app/).
+Personal portfolio [mrzaizai2k.xyz](https://mrzaizai2k.xyz/) displaying projects, resume, and skills. Fork and customize, credit [soumyajit](https://soumyajit.vercel.app/).
 
-## Built With
+## Tech Stack
 - React.js
 - Node.js
 - CSS3
@@ -31,70 +31,76 @@ My personal portfolio [mrzaizai2k.xyz](https://mrzaizai2k.xyz/) showcases my pro
 - Nginx
 
 ## Features
-- 📖 Multi-Page Layout
-- 🎨 Styled with CSS, easy to customize
-- 📱 Fully Responsive
-- 🔒 Basic DDoS protection via Nginx
-- 🐳 Containerized with Docker
+- 📖 Multi-page layout
+- 🎨 Customizable CSS
+- 📱 Responsive design
+- 🔒 Nginx DDoS protection
+- 🐳 Docker containerized
 
-## Getting Started
-You need `node.js`, `git`, and `docker` installed globally.
+## Setup
+Requires `node.js`, `git`, `docker`.
 
-## Installation and Setup
-1. Clone the repository:
+1. Clone repo:
    ```bash
    git clone https://github.com/mrzaizai2k/Portfolio.git
-   ```
-2. Navigate to the project directory:
-   ```bash
    cd Portfolio
    ```
-3. Install dependencies:
+2. Install dependencies:
    ```bash
    cd frontend
    npm install
    cd ..
    ```
 
-## Docker Setup
-1. Ensure `docker` and `docker-compose` are installed.
-2. Build and run the containers:
+## Docker
+1. Ensure `docker` and `docker-compose` installed.
+2. Build and run:
    ```bash
    docker-compose up -d
    ```
-3. Access the app at [http://localhost](http://localhost).
-4. To stop:
+3. Access: [http://localhost](http://localhost)
+4. Stop:
    ```bash
    docker-compose down
    ```
 
-**Note**: The `frontend/src` folder is mounted as a volume, so code changes reflect instantly. Nginx serves the app on port 80 with basic DDoS protection.
+**Note**: `/frontend/src` mounted as volume for instant code updates. Nginx serves on port 80 with DDoS protection.
 
-## Cloudflare Tunnel Setup
-To expose the app publicly:
+## Cloudflare Tunnel
+Expose app publicly:
+
 1. Install `cloudflared`:
    ```bash
-   wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
-   chmod +x cloudflared-linux-amd64
-   sudo mv cloudflared-linux-amd64 /usr/local/bin/cloudflared
+   chmod +x cloudflare/install_cloudflared.sh
+   ./cloudflare/install_cloudflared.sh
    ```
-2. Authenticate and create a tunnel (replace with your tunnel ID):
+2. Authenticate:
+   ```bash
+   cloudflared tunnel login
+   ```
+3. Create tunnel (replace `<Tunnel-UUID>` and `<Tunnel-NAME>`):
    ```bash
    sudo cp -r /home/mrzaizai2k/.cloudflared /root/.cloudflared
-   sudo chmod 644 /root/.cloudflared/d70e2d6b-2d95-4d8c-bf47-d5b2f11de773.json
-   sudo chown root:root /root/.cloudflared/d70e2d6b-2d95-4d8c-bf47-d5b2f11de773.json
-   cloudflared tunnel run mrzaizai2k_website
+   sudo chmod 644 /root/.cloudflared/<Tunnel-UUID>.json
+   sudo chown root:root /root/.cloudflared/<Tunnel-UUID>.json
+   cloudflared tunnel run <Tunnel-NAME>
    ```
-3. To stop the tunnel:
+4. Stop tunnel:
    ```bash
-   kill -9 $(ps aux | grep cloudflared | grep mrzaizai2k_website | awk '{print $2}')
+   kill -9 $(ps aux | grep cloudflared | grep <Tunnel-NAME> | awk '{print $2}')
    ```
 
-## Usage Instructions
-- Edit components in `/frontend/src/components/` to customize content.
-- Update Nginx settings in `/nginx/nginx.conf.template` for additional security or configuration.
-- Monitor logs:
-  ```bash
-  docker logs portfolio-frontend
-  docker logs nginx
-  ```
+See: [Cloudflare Docs](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/local-management/create-local-tunnel/#1-download-and-install-cloudflared), [Medium Guide](https://freedium.cfd/https://medium.com/@al_imran_ahmed/how-i-turned-an-old-laptop-into-a-web-hosting-server-for-my-laravel-application-e9035692d56b)
+
+## Usage
+- Customize: `/frontend/src/components/`
+- Configure Nginx: `/nginx/nginx.conf.template`
+- View logs:
+   ```bash
+   docker logs portfolio-frontend
+   docker logs nginx
+   ```
+
+## Support
+- [Report Bug](https://github.com/mrzaizai2k/Portfolio/issues)
+- [Request Feature](https://github.com/mrzaizai2k/Portfolio/issues)

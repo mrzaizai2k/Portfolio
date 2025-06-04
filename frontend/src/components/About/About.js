@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { Helmet } from "react-helmet";
 import Particle from "../Particle";
 import Github from "./Github";
 import Techstack from "./Techstack";
@@ -9,6 +10,9 @@ import laptopImg from "../../Assets/about.png";
 function About() {
   return (
     <Container fluid className="about-section">
+      <Helmet>
+        <title>Mrzaizai2k | About</title>
+      </Helmet>
       <Particle />
       <Container>
         <Row style={{ justifyContent: "center", padding: "10px" }}>
@@ -36,11 +40,7 @@ function About() {
         <h1 className="project-heading">
           Professional <strong className="purple">Skillset </strong>
         </h1>
-
         <Techstack />
-
-
-
         <Github />
       </Container>
     </Container>

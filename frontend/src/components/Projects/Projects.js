@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
@@ -12,6 +13,9 @@ import "./Projects.css";
 function Projects() {
   return (
     <Container fluid className="project-section">
+      <Helmet>
+        <title>Mrzaizai2k | Projects</title>
+      </Helmet>
       <Particle />
       <Container>
         <h1 className="project-heading">

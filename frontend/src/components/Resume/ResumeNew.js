@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
@@ -52,6 +53,9 @@ function ResumeNew() {
   return (
     <div>
       <Container fluid className="resume-section">
+        <Helmet>
+          <title>Mrzaizai2k | Resume</title>
+        </Helmet>
         <Particle />
 
         {/* Header */}

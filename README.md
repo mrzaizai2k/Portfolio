@@ -74,3 +74,11 @@ You will find all the components used and you can edit your information accordin
 Give a ⭐ if you like this website!
 
 <a href="https://www.buymeacoffee.com/soumyajit4419" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" height= "60px" width= "217px" ></a>
+
+```bash
+sudo cp -r /home/mrzaizai2k/.cloudflared /root/.cloudflared
+sudo -i
+chmod 644 /root/.cloudflared/d70e2d6b-2d95-4d8c-bf47-d5b2f11de773.json 
+chown root:root /root/.cloudflared/d70e2d6b-2d95-4d8c-bf47-d5b2f11de773.json
+cloudflared tunnel run mrzaizai2k_website
+```

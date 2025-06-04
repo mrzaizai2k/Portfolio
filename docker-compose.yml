@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  portfolio-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: portfolio-frontend
+    volumes:
+      - ./frontend/src:/app/src
+    networks:
+      - portfolio-network
+    expose:
+      - "3000"
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx
+    ports:
+      - "80:80"
+    networks:
+      - portfolio-network
+    depends_on:
+      - portfolio-frontend
+
+networks:
+  portfolio-network:
+    driver: bridge

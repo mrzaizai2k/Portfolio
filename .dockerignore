@@ -1,0 +1,13 @@
+# Ignore documentation and frontend filesfrontend/
+
+# Ignore Python cache files
+**/__pycache__/
+
+
+# Ignore test directories and files
+test/
+
+
+.env
+
+nginx/

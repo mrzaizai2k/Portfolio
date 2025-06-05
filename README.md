@@ -85,10 +85,29 @@ Expose app publicly:
    sudo chown root:root /root/.cloudflared/<Tunnel-UUID>.json
    cloudflared tunnel run <Tunnel-NAME>
    ```
+   
+   OR
+   
+   ```bash
+   sudo -i
+   cd root/.cloudflare/
+   touch config.yml
+   nano config.yml
+   # Change tunnel-uuid
+   cloudflared service install # run in background
+   systemctl start cloudflared
+   cloudflared tunnel run <Tunnel-NAME>
+   ```
 4. Stop tunnel:
    ```bash
-   kill -9 $(ps aux | grep cloudflared | grep <Tunnel-NAME> | awk '{print $2}')
+   cloudflared tunnel cleanup <Tunnel-NAME>
    ```
+5. Delete tunnel:
+   ```bash
+   #After cleanup connection
+   cloudflared tunnel delete <Tunnel-NAME>
+   ```
+
 
 See: [Cloudflare Docs](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/local-management/create-local-tunnel/#1-download-and-install-cloudflared), [Medium Guide](https://freedium.cfd/https://medium.com/@al_imran_ahmed/how-i-turned-an-old-laptop-into-a-web-hosting-server-for-my-laravel-application-e9035692d56b)
 

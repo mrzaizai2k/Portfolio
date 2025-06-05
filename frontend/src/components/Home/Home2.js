@@ -9,6 +9,7 @@ import {
 } from "react-icons/ai";
 import { FaLinkedinIn, FaDev } from "react-icons/fa";
 import { SiKaggle, SiTelegram, SiUpwork } from "react-icons/si";
+import "./Home.css";
 
 function Home2() {
   return (

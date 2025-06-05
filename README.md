@@ -2,9 +2,6 @@
 
 🌐 **Live Site**: [mrzaizai2k.xyz](https://mrzaizai2k.xyz/)
 
-<iframe src="https://mrzaizai2k.xyz" width="100%" height="600px"></iframe>
-
-
 [![Built with Love](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)  
 [![JavaScript](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)  
 [![Open Source](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)

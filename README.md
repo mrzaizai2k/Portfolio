@@ -87,15 +87,18 @@ Expose app publicly:
    ```
    
    OR
-   
+   remove any CNAME on cloudflare first
    ```bash
+   cloudflared tunnel create <Tunnel-NAME>
+   sudo cp -r /home/mrzaizai2k/.cloudflared /root/.cloudflared
    sudo -i
-   cd root/.cloudflare/
+   cd /root/.cloudflared/
    touch config.yml
    nano config.yml
    # Change tunnel-uuid
    cloudflared service install # run in background
    systemctl start cloudflared
+   cloudflared tunnel route dns <tunnel-NAME> <your_domain>
    cloudflared tunnel run <Tunnel-NAME>
    ```
 4. Stop tunnel:

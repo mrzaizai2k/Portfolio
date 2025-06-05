@@ -34,8 +34,10 @@ function Home2() {
               <br />
               My field of interest lies in building new
               <i>
-                <b className="purple">AI-powered applications </b> and
-                also in areas related to{" "}
+                <b className="purple">AI-powered applications </b>
+              </i>
+                 and also in areas related to{" "}
+              <i>
                 <b className="purple">
                   Computer Vision, NLP, and MLOps.
                 </b>
@@ -63,6 +65,7 @@ function Home2() {
                 className="img-fluid" 
                 alt="avatar" 
                 style={{ width: "300px", height: "300px", borderRadius: "50%" }} 
+                loading="lazy"
               />
             </Tilt>
           </Col>

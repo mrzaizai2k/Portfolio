@@ -37,7 +37,7 @@ function Home() {
               <Col md={5} style={{ paddingBottom: 20 }}>
                 <img
                   src={homeLogo}
-                  alt="Mai Chi Bao portrait"
+                  alt="home pic"
                   className="img-fluid"
                   style={{ maxHeight: "450px" }}
                   loading="lazy"

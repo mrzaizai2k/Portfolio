@@ -1,0 +1,33 @@
+name: Install, build and run web
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: cd frontend && npm ci
+
+    - name: Build project
+      run: cd frontend && npm run build
+
+    - name: Serve static page
+      run: |
+        cd frontend
+        npm install -g serve
+        serve -s build -p 3000 &
+        sleep 5
+        curl http://localhost:3000
+        pkill -f serve

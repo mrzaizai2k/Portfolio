@@ -6,6 +6,7 @@ import Github from "./Github";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about.png";
+import "./About.css"; // Import the new stylesheet
 
 function About() {
   return (
@@ -15,25 +16,14 @@ function About() {
       </Helmet>
       <Particle />
       <Container>
-        <Row style={{ justifyContent: "center", padding: "10px" }}>
-          <Col
-            md={7}
-            style={{
-              justifyContent: "center",
-              paddingTop: "30px",
-              paddingBottom: "50px",
-            }}
-          >
-            <h1 style={{ fontSize: "2.1em", paddingBottom: "20px" }}>
+        <Row className="about-content">
+          <Col md={7} className="about-text-col">
+            <h1 className="about-title">
               Know Who <strong className="purple">I'M</strong>
             </h1>
             <Aboutcard />
           </Col>
-          <Col
-            md={5}
-            style={{ paddingTop: "120px", paddingBottom: "50px" }}
-            className="about-img"
-          >
+          <Col md={5} className="about-img">
             <img src={laptopImg} alt="about" className="img-fluid" />
           </Col>
         </Row>

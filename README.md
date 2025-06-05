@@ -7,10 +7,6 @@
 
 🌐 **Live Site**: [mrzaizai2k.xyz](https://mrzaizai2k.xyz/)
 
-[![Built with Love](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)  
-[![JavaScript](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)  
-[![Open Source](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
-
 🔹 [Report Bug](https://github.com/mrzaizai2k/Portfolio/issues)  
 🔹 [Request Feature](https://github.com/mrzaizai2k/Portfolio/issues)
 

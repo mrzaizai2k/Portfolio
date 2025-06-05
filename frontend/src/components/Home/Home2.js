@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/profile.png";
+import myImg from "../../Assets/profile.webp";
 import Tilt from "react-parallax-tilt";
 import {
   AiFillGithub,

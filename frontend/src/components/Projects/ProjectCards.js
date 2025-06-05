@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
@@ -6,22 +6,19 @@ import { BsGithub } from "react-icons/bs";
 import { FaDev } from "react-icons/fa";
 
 function ProjectCards(props) {
+  const iframeRef = useRef(null);
+
   const getYouTubeVideoId = (url) => {
     if (!url) return null;
-    
     try {
-      // Handle youtu.be format
       if (url.includes("youtu.be/")) {
         const match = url.match(/youtu\.be\/([^?&]+)/);
         return match ? match[1] : null;
       }
-      
-      // Handle youtube.com format
       if (url.includes("youtube.com")) {
         const urlObj = new URL(url);
         return urlObj.searchParams.get("v");
       }
-      
       return null;
     } catch (error) {
       console.error("Error parsing YouTube URL:", error);
@@ -31,20 +28,36 @@ function ProjectCards(props) {
 
   const isYouTubeLink = props.demoLink && (props.demoLink.includes("youtube.com") || props.demoLink.includes("youtu.be"));
   const videoId = isYouTubeLink ? getYouTubeVideoId(props.demoLink) : null;
-  
-  // Use hqdefault.jpg as fallback since maxresdefault.jpg might not exist for all videos
   const thumbnailUrl = isYouTubeLink && videoId 
-    ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` 
+    ? `https://img.youtube.com/vi/${videoId}/default.jpg` 
     : props.imgPath;
+
+  useEffect(() => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          iframe.src = `https://www.youtube.com/embed/${videoId}`;
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "100px" }
+    );
+
+    observer.observe(iframe);
+    return () => observer.disconnect();
+  }, [videoId]);
 
   return (
     <Card className="project-card-view">
       {isYouTubeLink && videoId ? (
         <div className="youtube-embed">
           <iframe
+            ref={iframeRef}
             width="90%"
             height="200"
-            src={`https://www.youtube.com/embed/${videoId}`}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -55,16 +68,8 @@ function ProjectCards(props) {
         <Card.Img 
           variant="top" 
           src={thumbnailUrl} 
-          alt="card-img"
-          onError={(e) => {
-            if (isYouTubeLink && videoId) {
-              if (e.target.src.includes('hqdefault')) {
-                e.target.src = `https://img.youtube.com/vi/${videoId}/sddefault.jpg`;
-              } else if (e.target.src.includes('sddefault')) {
-                e.target.src = `https://img.youtube.com/vi/${videoId}/default.jpg`;
-              }
-            }
-          }}
+          alt="project thumbnail"
+          loading="lazy"
         />
       )}
       <Card.Body>
@@ -112,4 +117,4 @@ function ProjectCards(props) {
   );
 }
 
-export default ProjectCards;
+export default React.memo(ProjectCards);

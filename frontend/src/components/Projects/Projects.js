@@ -5,9 +5,9 @@ import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 import editor from "../../Assets/Projects/codeEditor.png";
 import golf from "../../Assets/Projects/golf.png";
-import invoice from "../../Assets/Projects/invoice.png";
-import llm_rag from "../../Assets/Projects/llm_rag.png";
-import stockbot from "../../Assets/Projects/stockbot.png";
+import invoice from "../../Assets/Projects/invoice.jpg";
+import llm_rag from "../../Assets/Projects/llm_rag.jpg";
+import stockbot from "../../Assets/Projects/stockbot.jpg";
 import "./Projects.css";
 
 function Projects() {

@@ -1,12 +1,22 @@
 .project-section {
-  position: relative;
-  padding: 50px 0;
-  background: #151515;
+  position: relative !important;
+  padding-top: 200px !important; /* for mobile, will be overridden below */
+  padding-top: 150px !important;
+  padding-bottom: 30px !important;
+  background-image: var(--section-background-color) !important;
+}
+
+@media (max-width: 767px) {
+  .project-section {
+    padding-top: 200px !important; /* Adjust based on navbar height */
+  }
 }
 
 .project-heading {
-  font-size: 2.5rem;
-  color: white;
+  color: white !important;
+  font-size: 2.3em !important;
+  font-weight: 500 !important;
+  padding-top: 10px !important;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -16,19 +26,29 @@
 }
 
 .project-card {
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  height: auto !important;
   margin-bottom: 30px;
 }
 
 .project-card-view {
-  background: #1c1c1c;
+  background-color: transparent !important;
   border: none;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459) !important;
+  color: white !important;
+  opacity: 0.9 !important;
+  transition: all 0.5s ease 0s !important;
+  height: 100% !important;
 }
 
 .project-card-view:hover {
-  transform: translateY(-5px);
+  transform: scale(1.02) !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 4px 5px rgba(129, 72, 144, 0.561) !important;
 }
 
 .project-card-view img {
@@ -47,14 +67,14 @@
   margin-bottom: 15px;
 }
 
-.card-description {
-  text-align: justify;
-}
-
 .project-card-view .card-text {
   color: #d3d3d3;
   font-size: 1rem;
   margin-bottom: 20px;
+}
+
+.card-description {
+  text-align: justify;
 }
 
 .skills-tags, .deliverables-tags {
@@ -101,38 +121,6 @@
   background: #a55cc3;
 }
 
-/* --------- */
-/* Projects */
-/* --------- */
-.project-section {
-  position: relative !important;
-  padding-top: 150px !important;
-  padding-bottom: 30px !important;
-  background-image: var(--section-background-color) !important;
-}
-
-.project-card {
-  padding-top: 50px !important;
-  padding-bottom: 50px !important;
-  padding-left: 25px !important;
-  padding-right: 25px !important;
-  height: auto !important;
-}
-
-.project-card-view {
-  box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459) !important;
-  color: white !important;
-  background-color: transparent !important;
-  opacity: 0.9 !important;
-  transition: all 0.5s ease 0s !important;
-  height: 100% !important;
-}
-.project-card-view:hover {
-  transform: scale(1.02) !important;
-  overflow: hidden !important;
-  box-shadow: 0 4px 4px 5px rgba(129, 72, 144, 0.561) !important;
-}
-
 .blog-card {
   padding-top: 50px !important;
   padding-bottom: 50px !important;
@@ -149,6 +137,12 @@
   height: 100% !important;
 }
 
+.blog-card-view:hover {
+  transform: scale(1.02) !important;
+  overflow: hidden !important;
+  box-shadow: 0 3px 3px 5px rgba(155, 88, 173, 0.65) !important;
+}
+
 .blog-link {
   color: white !important;
   text-decoration: none !important;
@@ -156,12 +150,6 @@
 
 .blog-link:hover {
   cursor: pointer !important;
-}
-
-.blog-card-view:hover {
-  transform: scale(1.02) !important;
-  overflow: hidden !important;
-  box-shadow: 0 3px 3px 5px rgba(155, 88, 173, 0.65) !important;
 }
 
 .card-img-top {
@@ -187,14 +175,8 @@
   background-color: #6d20c5d7 !important;
   border-color: #6d20c5d7 !important;
 }
+
 .btn:focus {
   outline: none !important;
   box-shadow: none !important;
 }
-.project-heading {
-  color: white !important;
-  font-size: 2.3em !important;
-  font-weight: 500 !important;
-  padding-top: 10px !important;
-}
-

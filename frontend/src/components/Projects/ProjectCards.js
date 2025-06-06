@@ -106,7 +106,7 @@ function ProjectCards(props) {
               <FaDev /> Blog
             </Button>
           )}
-          {!props.isBlog && props.demoLink && !isYouTubeLink && (
+          {props.demoLink && (
             <Button className="project-btn" variant="primary" href={props.demoLink} target="_blank">
               <CgWebsite /> Demo
             </Button>

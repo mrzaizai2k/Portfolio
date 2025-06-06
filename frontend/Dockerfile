@@ -1,22 +1,27 @@
-# Use official Node image
-FROM node:18-alpine
+# Use a smaller Node.js base image
+FROM node:18-slim AS builder
 
 # Set working directory
 WORKDIR /app
 
-# Copy dependency files first (for better Docker caching)
-COPY package.json package-lock.json ./
+# Copy package files and install dependencies
+COPY package*.json ./
+RUN npm ci --only=production
 
-# Install dependencies
-RUN npm ci
-
-# Copy rest of the application
+# Copy source code
 COPY . .
 
-# Build the React app
+# Build the app
 RUN npm run build
 
-# Install a lightweight static server
+# Use a lightweight base image for the final stage
+FROM node:18-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy only the build output and necessary files
+COPY --from=builder /app/build ./build
 RUN npm install -g serve
 
 # Expose port

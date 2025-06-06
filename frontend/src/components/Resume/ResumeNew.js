@@ -4,6 +4,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
 import cvData from "../../Assets/cv.json";
+import myImg from "../../Assets/profile.webp";
+import Tilt from "react-parallax-tilt";
 import "./ResumeNew.css";
 import { AiOutlineDownload, AiOutlineLink } from "react-icons/ai";
 
@@ -65,26 +67,37 @@ function ResumeNew() {
           </Col>
         </Row>
 
-        {/* Download Button & Contact Info */}
+        {/* Avatar & Contact Info */}
         <div className="download-contact-section">
-          <Button
-            variant="primary"
-            onClick={handleDownloadCV}
-            className="download-btn"
-          >
-            <AiOutlineDownload /> Download CV
-          </Button>
-          <div className="contact-info">
-            <p>
-              <a href={`mailto:${cvData.basics.email}`}>{cvData.basics.email}</a> | {cvData.basics.phone}
-            </p>
-            <p>
-              <a href={cvData.basics.website} target="_blank" rel="noopener noreferrer">
-                {cvData.basics.website}
-              </a>
-            </p>
-            <p>{cvData.basics.location.city}, {cvData.basics.location.countryCode}</p>
-          </div>
+          <Row className="align-items-center">
+            <Col xs={12} md={3} className="myAvatar">
+              <Tilt>
+                <img 
+                  src={myImg} 
+                  className="img-fluid" 
+                  alt="avatar" 
+                  style={{ maxWidth: "220px", borderRadius: "50%" }} 
+                  loading="lazy"
+                />
+              </Tilt>
+            </Col>
+            <Col xs={12} md={9}>
+              <Button
+                variant="primary"
+                onClick={handleDownloadCV}
+                className="download-btn"
+              >
+                <AiOutlineDownload /> Download CV
+              </Button>
+              <div className="contact-info">
+                <p>
+                  <a href={`mailto:${cvData.basics.email}`}>{cvData.basics.email}</a>
+                </p>
+                <p>{cvData.basics.phone}</p>
+                <p>{cvData.basics.location.city}, {cvData.basics.location.countryCode}</p>
+              </div>
+            </Col>
+          </Row>
         </div>
 
         {/* Experience Section */}

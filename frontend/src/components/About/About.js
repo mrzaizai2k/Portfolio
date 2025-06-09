@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Helmet } from "react-helmet";
+import ReactGA from "react-ga4";
 import Particle from "../Particle";
 import Github from "./Github";
 import Techstack from "./Techstack";
@@ -9,6 +10,15 @@ import laptopImg from "../../Assets/about.png";
 import "./About.css"; // Import the new stylesheet
 
 function About() {
+  useEffect(() => {
+    // Track page view
+    ReactGA.send({ 
+      hitType: "pageview", 
+      page: "/about",
+      title: "About Page"
+    });
+  }, []);
+
   return (
     <Container fluid className="about-section">
       <Helmet>

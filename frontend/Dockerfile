@@ -11,6 +11,10 @@ RUN npm ci --only=production
 # Copy source code
 COPY . .
 
+# Accept build-time environment variables
+ARG REACT_APP_GA4_MEASUREMENT_ID
+ENV REACT_APP_GA4_MEASUREMENT_ID=$REACT_APP_GA4_MEASUREMENT_ID
+
 # Build the app
 RUN npm run build
 
@@ -22,6 +26,7 @@ WORKDIR /app
 
 # Copy only the build output and necessary files
 COPY --from=builder /app/build ./build
+
 RUN npm install -g serve
 
 # Expose port

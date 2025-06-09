@@ -1,11 +1,12 @@
 version: '3.8'
-
 services:
   portfolio-frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
     container_name: portfolio-frontend
+    environment:
+      - REACT_APP_GA4_MEASUREMENT_ID=${REACT_APP_GA4_MEASUREMENT_ID}
     volumes:
       - ./frontend/src:/app/src
       - ./frontend/public:/app/public
@@ -13,7 +14,6 @@ services:
       - portfolio-network
     expose:
       - "3000"
-
   nginx:
     build:
       context: ./nginx
@@ -25,7 +25,6 @@ services:
       - portfolio-network
     depends_on:
       - portfolio-frontend
-
 networks:
   portfolio-network:
     driver: bridge

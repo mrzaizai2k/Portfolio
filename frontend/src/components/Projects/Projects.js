@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
@@ -9,8 +9,18 @@ import invoice from "../../Assets/Projects/invoice.jpg";
 import llm_rag from "../../Assets/Projects/llm_rag.jpg";
 import stockbot from "../../Assets/Projects/stockbot.jpg";
 import "./Projects.css";
+import ReactGA from "react-ga4";
 
+// Add this useEffect inside the Projects function, after the return statement opening
 function Projects() {
+  useEffect(() => {
+    // Track page view
+    ReactGA.send({ 
+      hitType: "pageview", 
+      page: "/projects",
+      title: "Projects Page"
+    });
+  }, []);
   return (
     <Container fluid className="project-section">
       <Helmet>

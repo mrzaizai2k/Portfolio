@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
@@ -8,9 +8,27 @@ import myImg from "../../Assets/profile.webp";
 import Tilt from "react-parallax-tilt";
 import "./ResumeNew.css";
 import { AiOutlineDownload, AiOutlineLink } from "react-icons/ai";
+import ReactGA from "react-ga4";
 
 function ResumeNew() {
+  // Add this useEffect for page tracking
+  useEffect(() => {
+    // Track page view
+    ReactGA.send({ 
+      hitType: "pageview", 
+      page: "/resume",
+      title: "Resume Page"
+    });
+  }, []);
+  
   const handleDownloadCV = () => {
+    // Track download event
+    ReactGA.event({
+      action: "download",
+      category: "engagement",
+      label: "CV_Download",
+    });
+    
     const link = document.createElement('a');
     link.href = '/Assets/CV_MAI_CHI_BAO.pdf';
     link.download = 'CV_MAI_CHI_BAO.pdf';

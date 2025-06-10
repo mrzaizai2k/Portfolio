@@ -20,19 +20,20 @@
 - [Setup](#setup)
 - [Docker](#docker)
 - [Cloudflare Tunnel](#cloudflare-tunnel)
+- [Google Analytics](#google-analytics)
 - [Usage](#usage)
 - [Support](#support)
 
 ---
 
-## 📌 About
+## About
 
 Personal portfolio [mrzaizai2k.xyz](https://mrzaizai2k.xyz/) showcasing my projects, resume, and skills.  
 Feel free to fork and customize! Credit to [Soumyajit](https://soumyajit.vercel.app/).
 
 ---
 
-## 💻 Tech Stack
+## Tech Stack
 
 - React.js  
 - Node.js  
@@ -42,7 +43,7 @@ Feel free to fork and customize! Credit to [Soumyajit](https://soumyajit.vercel.
 
 ---
 
-## ✨ Features
+## Features
 
 - 📖 Multi-page layout  
 - 🎨 Customizable CSS  
@@ -52,7 +53,7 @@ Feel free to fork and customize! Credit to [Soumyajit](https://soumyajit.vercel.
 
 ---
 
-## ⚙️ Setup
+## Setup
 
 > Requires `node.js`, `git`, `docker`.
 
@@ -70,9 +71,17 @@ Feel free to fork and customize! Credit to [Soumyajit](https://soumyajit.vercel.
    cd ..
    ```
 
+3. **Add in `.env` file** 
+
+   Take the Measuring_ID as in [Google Analytics](#google-analytics)
+   ```
+      REACT_APP_GA4_MEASUREMENT_ID=G-XXXXXX
+   ```
+
+
 ---
 
-## 🐳 Docker
+## Docker
 
 1. Ensure `docker` and `docker-compose` are installed.
 
@@ -96,7 +105,7 @@ Feel free to fork and customize! Credit to [Soumyajit](https://soumyajit.vercel.
 
 ---
 
-## 🌐 Cloudflare Tunnel
+## Cloudflare Tunnel
 
 Expose your site to the public using Cloudflare Tunnel:
 
@@ -168,7 +177,26 @@ Expose your site to the public using Cloudflare Tunnel:
 
 ---
 
-## 🚀 Usage
+## Google Analytics
+
+1. Signing Up: Visit the Google Analytics website and sign up for an account using your Google credentials.
+
+2. Creating a Property: Once logged in, create a new property within your Google Analytics account for the website or application you want to track. Provide relevant information, such as the website URL, industry category, and reporting time zone.
+
+3. Generating Measuring ID: Upon creating a property, Google Analytics will ask that you create a data stream. Create a web data stream. If your project is still in development, you can use any domain of your choice, whether life or not. After creating a data stream, Google Analytics will generate a unique measuring ID. The measuring ID links your application and Google Analytics, allowing data collection and reporting to occur seamlessly.
+
+4. Add in `.env` file 
+```
+   REACT_APP_GA4_MEASUREMENT_ID=G-XXXXXX
+```
+
+<p align="center"><img src="docs/google_analytics.jpg" width="700"></p>
+<p align="center"><i>Figure. Google Analytics </i></p>
+
+Reference: https://blog.openreplay.com/integrating-google-analytics-with-react--a-full-guide/
+
+
+## Usage
 
 * **Customize frontend**:
   Modify components in `/frontend/src/components/`
@@ -185,7 +213,7 @@ Expose your site to the public using Cloudflare Tunnel:
 
 ---
 
-## 🙋 Support
+## Support
 
 * [Report a Bug](https://github.com/mrzaizai2k/Portfolio/issues)
 * [Request a Feature](https://github.com/mrzaizai2k/Portfolio/issues)

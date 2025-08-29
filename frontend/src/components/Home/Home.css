@@ -71,12 +71,19 @@
 
 .heading-name {
   font-size: 2.5em !important;
-  padding-left: 45px !important;
+  padding-left: 50px !important;
 }
 
 .main-name {
   color: #cd5ff8;
 }
+
+.type {
+  padding: 50px 0;
+  text-align: left;
+  padding-left: 50px !important;
+}
+
 
 .Typewriter__wrapper {
   font-size: 2.2em !important;

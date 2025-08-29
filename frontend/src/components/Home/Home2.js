@@ -40,7 +40,7 @@ function Home2() {
                  and also in areas related to{" "}
               <i>
                 <b className="purple">
-                  Computer Vision, NLP, and MLOps.
+                  Generative AI, Computer Vision and MLOps.
                 </b>
               </i>
               <br />
@@ -55,7 +55,7 @@ function Home2() {
               </i>
                 like
               <i>
-                <b className="purple"> Flask, React.js, and Hugging Face Transformers</b>
+                <b className="purple"> Transformers, Hugging Face, Flask and React.js</b>
               </i>
             </p>
           </Col>

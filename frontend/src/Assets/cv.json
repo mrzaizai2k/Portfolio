@@ -33,12 +33,28 @@
   },
   "work": [
     {
+      "company": "Joblogic",
+      "url": "https://www.joblogic.com/",
+      "position": "Senior LLM Engineer",
+      "website": "",
+      "startDate": "2025",
+      "endDate": "Present",
+      "summary": "",
+      "highlights": [
+        "Designed, developed, and deployed production-ready machine learning models to address complex business challenges.",
+        "Implemented predictive analytics for maintenance and performance, improving equipment uptime and operational efficiency.",
+        "Enhanced model accuracy and efficiency through fine-tuning, retraining, and optimization techniques.",
+        "Built scalable APIs and services to enable seamless integration of machine learning models into production environments.",
+        "Continuously monitored model performance and applied improvements to ensure reliability and scalability."
+      ]
+    },
+    {
       "company": "Nam A Bank",
       "url": "https://www.namabank.com.vn/",
       "position": "Senior Machine Learning Engineer - Data Science Team Leader",
       "website": "",
       "startDate": "2023",
-      "endDate": "Present",
+      "endDate": "2025",
       "summary": "",
       "highlights": [
         "Fine-tuned a Vision LLM (Qwen2VL) model for golf scorecard extraction, achieving 83% higher accuracy than traditional OCR with just 30 samples.",

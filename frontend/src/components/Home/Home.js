@@ -28,7 +28,7 @@ function Home() {
               <h1 className="heading-name">
                 I'M <strong className="main-name"> MAI CHI BAO (Mrzaizai2k)</strong>
               </h1>
-              <div style={{ padding: "50px 0", textAlign: "left" }}>
+              <div className="type">
                 <Suspense fallback={<div>Loading...</div>}>
                   <Type />
                 </Suspense>

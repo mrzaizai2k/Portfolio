@@ -8,15 +8,15 @@ function AboutCard() {
       <Card.Body>
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
-            Hi Everyone, I am <span className="purple">Mai Chi Bao (Mrzaizai2k) </span>
-            from <span className="purple"> Viet Nam.</span>
+            Hi Everyone, I am <span className="purple">Mai Chi Bao (Mrzaizai2k)</span> from <span className="purple"> Viet Nam.</span>
             <br />
-            I am currently employed as a Senior Machine Learning Engineer and Data Science Team Leader at Nam A Bank.
+            I am currently working as a Senior LLM Engineer at Joblogic. 
+            Previously, I served as a Senior Machine Learning Engineer and Data Science Team Leader at Nam A Bank.
             <br />
-            I have completed a BEng in Electronics - Telecommunications Engineering and am pursuing an MSc in Computer Science at Ho Chi Minh City University of Technology.
+            I hold a BEng in Electronics - Telecommunications Engineering and am pursuing an MSc in Computer Science at Ho Chi Minh City University of Technology.
             <br />
             <br />
-            Apart from AI and ML, some other activities that I love to do!
+            Beyond AI and ML, I also enjoy exploring other activities and interests!
           </p>
           <ul>
             <li className="about-activity">

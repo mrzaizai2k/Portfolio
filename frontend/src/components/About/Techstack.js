@@ -1,8 +1,9 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { DiPython, DiReact, DiJavascript1 } from "react-icons/di";
-import { SiPytorch, SiTensorflow, SiAmazonaws, SiMicrosoftazure, SiDocker, SiKubernetes, SiMysql, SiOracle, SiFlask, SiPandas } from "react-icons/si";
-import { FaBrain } from "react-icons/fa";
+import { SiPytorch, SiTensorflow, SiDocker, SiKubernetes, SiMysql, SiOracle, SiFlask, SiPandas } from "react-icons/si";
+import { FaBrain, FaAws } from "react-icons/fa";
+import { VscAzure } from "react-icons/vsc";
 
 function Techstack() {
   return (
@@ -34,12 +35,12 @@ function Techstack() {
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
-          <SiAmazonaws />
+          <FaAws />
         </a>
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <a href="https://azure.microsoft.com/" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
-          <SiMicrosoftazure />
+          <VscAzure />
         </a>
       </Col>
       <Col xs={4} md={2} className="tech-icons">

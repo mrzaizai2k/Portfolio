@@ -55,7 +55,7 @@ function Home2() {
               </i>
                 like
               <i>
-                <b className="purple"> Transformers, Hugging Face, Flask and React.js</b>
+                <b className="purple"> Transformers, Hugging Face, FastAPI and React.js</b>
               </i>
             </p>
           </Col>

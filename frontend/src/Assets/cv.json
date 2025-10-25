@@ -37,15 +37,13 @@
       "url": "https://www.joblogic.com/",
       "position": "Senior LLM Engineer",
       "website": "",
-      "startDate": "2025",
-      "endDate": "Present",
+      "startDate": "6/2025",
+      "endDate": "10/2025",
       "summary": "",
       "highlights": [
-        "Designed, developed, and deployed production-ready machine learning models to address complex business challenges.",
-        "Implemented predictive analytics for maintenance and performance, improving equipment uptime and operational efficiency.",
-        "Enhanced model accuracy and efficiency through fine-tuning, retraining, and optimization techniques.",
-        "Built scalable APIs and services to enable seamless integration of machine learning models into production environments.",
-        "Continuously monitored model performance and applied improvements to ensure reliability and scalability."
+        "Built an end-to-end LLM evaluation platform using ReactJS, Azure Blob Storage, MongoDB, Azure AI Search, Kafka, LangChain for up to 30 concurrent processes.",
+        "Fine-tuned and benchmarked LLaMA 3.1, Gemma 3, Phi 4 for RAG applications using both local and Azure resources, achieving a 23% performance improvement",
+        "Developed an MCP-based agentic system for consumer consultation, integrating LLM reasoning and external API orchestration."
       ]
     },
     {

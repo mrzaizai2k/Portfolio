@@ -27,7 +27,7 @@ Cloudflare then instructed me to log in to my **GoDaddy** account and change the
 
 #### Illustration:
 
-![Change Nameservers](docs/change_nameserver.png)
+![Change Nameservers](change_nameserver.png)
 
 By doing so, I effectively gave Cloudflare full control to manage my domain’s DNS records.
 I completed the change — it took a short while to propagate.

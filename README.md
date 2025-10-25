@@ -109,6 +109,9 @@ Feel free to fork and customize! Credit to [Soumyajit](https://soumyajit.vercel.
 
 Expose your site to the public using Cloudflare Tunnel:
 
+Please read this `docs/connecting_domain_cloudflare.md` to know how to connecting your domain with Cloudflare
+
+
 1. **Install `cloudflared`**:
 
    ```bash
@@ -118,6 +121,8 @@ Expose your site to the public using Cloudflare Tunnel:
 
 2. **Authenticate**:
 
+   This is neccessary, if you need to change domain, you need to login again
+
    ```bash
    cloudflared tunnel login
    ```
@@ -125,7 +130,7 @@ Expose your site to the public using Cloudflare Tunnel:
 3. **Create and run tunnel**
    
    - (replace `<Tunnel-UUID>` and `<Tunnel-NAME>` accordingly):
-   -  you need to remove existing CNAME on cloudflare first:
+   -  you need to remove existing A, AAA, CNAME records on cloudflare first (which was created whenever you ru create tunnel on different machines):
 
    ```bash
    cloudflared tunnel create <Tunnel-NAME>
@@ -152,8 +157,8 @@ Expose your site to the public using Cloudflare Tunnel:
    Keep doing
 
    ```bash
-   cloudflared service install
-   systemctl start cloudflared
+   sudo cloudflared service install
+   sudo systemctl start cloudflared
    cloudflared tunnel route dns <Tunnel-NAME> <your_domain>
    cloudflared tunnel run <Tunnel-NAME>
    ```

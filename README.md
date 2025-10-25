@@ -109,7 +109,7 @@ Feel free to fork and customize! Credit to [Soumyajit](https://soumyajit.vercel.
 
 Expose your site to the public using Cloudflare Tunnel:
 
-Please read this `docs/connecting_domain_cloudflare.md` to know how to connecting your domain with Cloudflare
+Please read this [connecting_domain_cloudflare](docs/connecting_domain_cloudflare.md) to know how to connecting your domain with Cloudflare
 
 
 1. **Install `cloudflared`**:

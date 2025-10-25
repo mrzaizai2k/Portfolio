@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/github/license/mrzaizai2k/Portfolio?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Release](https://img.shields.io/github/v/release/mrzaizai2k/Portfolio?style=flat-square)](https://github.com/mrzaizai2k/Portfolio/releases)
 
-🌐 **Live Site**: [mrzaizai2k.xyz](https://mrzaizai2k.xyz/)
+🌐 **Live Site**: [mrzaizai2k.com](https://mrzaizai2k.com/)
 
 🔹 [Report Bug](https://github.com/mrzaizai2k/Portfolio/issues)  
 🔹 [Request Feature](https://github.com/mrzaizai2k/Portfolio/issues)
@@ -28,7 +28,7 @@
 
 ## About
 
-Personal portfolio [mrzaizai2k.xyz](https://mrzaizai2k.xyz/) showcasing my projects, resume, and skills.  
+Personal portfolio [mrzaizai2k.com](https://mrzaizai2k.com/) showcasing my projects, resume, and skills.  
 Feel free to fork and customize! Credit to [Soumyajit](https://soumyajit.vercel.app/).
 
 ---

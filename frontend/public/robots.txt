@@ -7,4 +7,4 @@ Allow: /resume
 Disallow: /images/
 Disallow: /manifest.json
 Disallow: /favicon.png
-Sitemap: https://mrzaizai2k.xyz/sitemap.xml
+Sitemap: https://mrzaizai2k.com/sitemap.xml

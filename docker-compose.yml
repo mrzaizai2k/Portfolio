@@ -14,6 +14,8 @@ services:
       - portfolio-network
     expose:
       - "3000"
+    restart: unless-stopped
+
   nginx:
     build:
       context: ./nginx
@@ -25,6 +27,8 @@ services:
       - portfolio-network
     depends_on:
       - portfolio-frontend
+    restart: unless-stopped
+
 networks:
   portfolio-network:
     driver: bridge

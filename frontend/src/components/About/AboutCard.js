@@ -10,7 +10,7 @@ function AboutCard() {
           <p style={{ textAlign: "justify" }}>
             Hi Everyone, I am <span className="purple">Mai Chi Bao (Mrzaizai2k)</span> from <span className="purple"> Viet Nam.</span>
             <br />
-            I am currently working as a Senior LLM Engineer at Joblogic. 
+            I am currently working as a Senior AI Engineer at FPT Software. 
             Previously, I served as a Senior Machine Learning Engineer and Data Science Team Leader at Nam A Bank.
             <br />
             I hold a BEng in Electronics - Telecommunications Engineering and am pursuing an MSc in Computer Science at Ho Chi Minh City University of Technology.

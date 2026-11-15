@@ -141,6 +141,7 @@ function ResumeNew() {
                     {renderNameWithLink(job.company, job.url, job.website)}
                   </div>
                   <div className="position-title">{job.position}</div>
+                  {job.summary && <div className="position-subtitle">{job.summary}</div>}
                   <div className="job-description">
                     {renderHighlights(job.highlights)}
                   </div>

@@ -1,8 +1,8 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { DiPython, DiReact, DiJavascript1 } from "react-icons/di";
-import { SiPytorch, SiTensorflow, SiDocker, SiKubernetes, SiMysql, SiOracle, SiFlask, SiPandas } from "react-icons/si";
-import { FaBrain, FaAws } from "react-icons/fa";
+import { SiPytorch, SiTensorflow, SiDocker, SiKubernetes, SiMysql, SiOracle, SiFlask, SiPandas, SiHuggingface, SiLangchain, SiFastapi, SiMongodb, SiApachekafka, SiOnnx, SiNvidia } from "react-icons/si";
+import { FaAws } from "react-icons/fa";
 import { VscAzure } from "react-icons/vsc";
 
 function Techstack() {
@@ -30,7 +30,37 @@ function Techstack() {
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <a href="https://huggingface.co/" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
-          <FaBrain />
+          <SiHuggingface />
+        </a>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <a href="https://www.langchain.com/" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
+          <SiLangchain />
+        </a>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
+          <SiFastapi />
+        </a>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <a href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
+          <SiMongodb />
+        </a>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
+          <SiApachekafka />
+        </a>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <a href="https://onnx.ai/" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
+          <SiOnnx />
+        </a>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <a href="https://developer.nvidia.com/embedded/jetson-modules" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
+          <SiNvidia />
         </a>
       </Col>
       <Col xs={4} md={2} className="tech-icons">

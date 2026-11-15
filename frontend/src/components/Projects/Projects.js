@@ -8,6 +8,7 @@ import golf from "../../Assets/Projects/golf.png";
 import invoice from "../../Assets/Projects/invoice.jpg";
 import llm_rag from "../../Assets/Projects/llm_rag.jpg";
 import stockbot from "../../Assets/Projects/stockbot.jpg";
+import contentStudio from "../../Assets/Projects/content_studio.png";
 import "./Projects.css";
 import ReactGA from "react-ga4";
 
@@ -35,6 +36,31 @@ function Projects() {
           Here are a few projects I've worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={contentStudio}
+              isBlog={false}
+              title="Content Studio: Multi-Agent Content Writer"
+              description={["A multi-agent content writer built on LangChain Deep Agents. It plans the work, sends research to subagents, writes the post, finds a cover image and a YouTube video, generates hashtags, then grades its own draft and revises until it passes.", "Comes with a FastAPI streaming (SSE) backend, a React UI that shows each step live, a Docker sandbox per conversation, and crash/resume from checkpoints."]}
+              ghLink="https://github.com/mrzaizai2k/harness_learning"
+              skills={["AI Agents", "LangChain Deep Agents", "A2A", "FastAPI", "React.js", "Docker"]}
+              deliverables={[]}
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={editor}
+              isBlog={false}
+              title="Hybrid LLM-GNN for ADAPT-QAOA"
+              description={["A hybrid LLM-GNN model that improves the efficiency of ADAPT-QAOA for optimizing graph-structured quantum circuits. It helps hybrid quantum-classical methods solve combinatorial optimization problems, such as logistics and network design, that get harder for classical algorithms as they grow."]}
+              ghLink="https://github.com/mrzaizai2k/Adapt-LLM"
+              demoLink="https://youtu.be/4bbEIj1MuAc"
+              skills={["Large Language Model", "Graph Neural Network", "Quantum Computing", "QAOA", "Optimization", "Research"]}
+              deliverables={[]}
+            />
+          </Col>
+
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={invoice}
@@ -82,7 +108,7 @@ function Projects() {
               isBlog={false}
               title="MCP Server"
               description={["MCP servers provide structured data to AI, improving context awareness. The fastapi-mcp package simplifies FastAPI-based MCP server creation. My MCP server, linked to Claude Desktop on Windows, offers stock analysis, file search, transfer, editing, and task management endpoints, ensuring efficient, accurate data processing for real-time insights."]}
-              ghLink="https://github.com/mrzaizai2k/LLM-with-RAG/blob/main/README.md"
+              ghLink=""
               demoLink="https://www.youtube.com/watch?v=spJoWKntX4o"
               blogLink="https://dev.to/mrzaizai2k/building-an-mcp-server-with-fastapi-mcp-for-stock-analysis-a-step-by-step-guide-de6"
               skills={["MCP", "Stock Market", "Multimodal Large Language Model", "Automation", "File Management", "FastAPI"]}
@@ -121,7 +147,7 @@ function Projects() {
               imgPath={golf}
               isBlog={false}
               title="Golf Score Card Reader"
-              description={["Computer vision app employs a fine-tuned QWEN2VL model to extract player names and scores from golf score card images. Fine-tuning on diverse score card datasets optimizes accuracy for varied layouts, fonts, and image qualities, achieving 95%+ precision.",
+              description={["Computer vision app employs a fine-tuned QWEN2VL model to extract player names and scores from golf score card images. Fine-tuning on diverse score card datasets optimizes accuracy for varied layouts, fonts, and image qualities, achieving 83% higher accuracy than traditional OCR with just 30 samples.",
                         "Preprocessing and OCR enhance text recognition. Fine-tuning mitigates challenges like misaligned text or handwriting, ensuring robust performance. Outputs structured JSON for real-time or bulk processing, ideal for tournaments. Multilingual support is feasible with further fine-tuning."]}
               blogLink="https://dev.to/mrzaizai2k/how-to-finetune-qwen2-vl-model-on-custom-dataset-3615"
               ghLink="https://github.com/mrzaizai2k/golf_score_ocr"
@@ -178,6 +204,45 @@ function Projects() {
               demoLink="https://www.youtube.com/watch?v=Cg5OwiP-Yvc&t=15s"
               ghLink="https://github.com/mrzaizai2k/ARUNO_NodeMCU_MIT-APP_LEDon"
               skills={["Arduino", "NodeMCU", "Wi-Fi", "MIT App Inventor", "IoT", "Embedded Systems"]}
+              deliverables={[]}
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={editor}
+              isBlog={false}
+              title="Voz Thread QA & Chrome Extension"
+              description={["An AI question-answering system for VOZ forum threads. It crawls threads asynchronously, extracts and caches posts, detects user intent and routes each question to a specialized prompt, so an LLM can answer from the discussion. A Chrome extension lets you ask questions right on Voz.vn."]}
+              ghLink="https://github.com/mrzaizai2k/Voz_QA"
+              demoLink="https://youtu.be/WoYNp-cwFWw"
+              blogLink=""
+              skills={["Large Language Model", "Question Answering", "Web Crawling", "Intent Routing", "Chrome Extension", "JavaScript"]}
+              deliverables={[]}
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={editor}
+              isBlog={false}
+              title="MoveDuplicates"
+              description={["A simple tool that finds duplicate images in a folder and moves them to a separate folder for review. Ships as an .exe so anyone can clean up image datasets or personal photo collections quickly."]}
+              ghLink="https://github.com/mrzaizai2k/deduplicate_images"
+              demoLink="https://youtu.be/o6pMQoCuBs8"
+              skills={["Python", "Image Processing", "Automation", "Data Cleaning", "Desktop Tool"]}
+              deliverables={[]}
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={editor}
+              isBlog={false}
+              title="Machine Learning with Arduino: Head Tilt"
+              description={["Brings machine learning to Arduino by detecting head tilt movements."]}
+              demoLink="https://youtu.be/0VEDiWr_wdU"
+              skills={["Arduino", "Machine Learning", "Embedded Systems", "IoT"]}
               deliverables={[]}
             />
           </Col>

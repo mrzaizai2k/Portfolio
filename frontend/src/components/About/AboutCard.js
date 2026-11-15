@@ -13,7 +13,7 @@ function AboutCard() {
             I am currently working as a Senior AI Engineer at FPT Software. 
             Previously, I served as a Senior Machine Learning Engineer and Data Science Team Leader at Nam A Bank.
             <br />
-            I hold a BEng in Electronics - Telecommunications Engineering and am pursuing an MSc in Computer Science at Ho Chi Minh City University of Technology.
+            I hold an MSc in Computer Science and a BEng in Electronics - Telecommunications Engineering from Ho Chi Minh City University of Technology.
             <br />
             <br />
             Beyond AI and ML, I also enjoy exploring other activities and interests!

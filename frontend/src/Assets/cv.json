@@ -3,7 +3,7 @@
     "name": "MAI CHI BAO",
     "email": "chibao24.12.1999@gmail.com",
     "phone": "+84 327 620 475",
-    "website": "https://mrzaizai2k.github.io",
+    "website": "https://mrzaizai2k.com",
     "location": {
       "city": "Ho Chi Minh City",
       "countryCode": "Viet Nam"
@@ -39,11 +39,12 @@
       "website": "",
       "startDate": "11/2025",
       "endDate": "Present",
-      "summary": "",
+      "summary": "AI Solution Lead and AI Engineer building LLM agents, multi-agent systems and edge AI for automotive and developer-tool products.",
       "highlights": [
-        "Tested and evaluated AI software solutions for Qualcomm, focusing on performance, reliability, and integration readiness.",
-        "Deployed an on-device voice assistant on NVIDIA Jetson Xavier using LLaMA-8B models, optimizing for edge inference.",
-        "Built automated evaluation and content generation pipelines using Claude on AWS Bedrock, and implemented image generation workflows with AWS Canvas models."
+        "Led AI solution design and technical direction as AI Solution Lead across multiple AI projects.",
+        "Built an on-device multi-agent orchestrator for an in-car AI assistant: fine-tuned Qwen 4B planner, embedding-based router and ambiguity classifier, with A2A agents (user preferences, reminders, infotainment, car-manual RAG) over MCP and WebSocket, running on NVIDIA Jetson with llama.cpp and offline fallback.",
+        "Built LLM evaluation and image-generation services with LangGraph two-round rubric scoring, Bedrock Knowledge Base, FastAPI and PostgreSQL/pgvector, integrated them into ReactJS and Java apps, and set up CI/CD on AWS (CodeBuild, CodePipeline, CodeDeploy, ECS).",
+        "Built agentic code-to-documentation systems that generate SRS and software design documents from source code, using LangGraph agents with code-graph and knowledge-graph tools (Tree-sitter AST), a traced sub-agent registry, sandboxed execution and Prometheus/Grafana observability."
       ]
     },
     {
@@ -112,7 +113,7 @@
       "area": "Computer Science",
       "studyType": "M.S.",
       "startDate": "2024",
-      "endDate": "Present",
+      "endDate": "11/2026",
       "gpa": null,
       "courses": []
     },
@@ -127,7 +128,80 @@
       "courses": []
     }
   ],
-  "skills": [],
+  "skills": [
+    {
+      "name": "LLM & Agents",
+      "keywords": [
+        "Fine-tuning (LoRA, QLoRA, PEFT)",
+        "RAG",
+        "LLM evaluation (hallucination, toxicity, bias)",
+        "MCP",
+        "Multi-agent systems",
+        "Quantization",
+        "AWS Bedrock (Claude)",
+        "LangGraph",
+        "A2A protocol",
+        "Embedding-based routing",
+        "Azure OpenAI",
+        "vLLM",
+        "llama.cpp"
+      ]
+    },
+    {
+      "name": "Edge AI",
+      "keywords": [
+        "On-device LLM inference (NVIDIA Jetson Xavier, LLaMA-8B)",
+        "ONNX",
+        "NVIDIA Jetson (Xavier, Thor)",
+        "Qwen 4B on-device orchestration"
+      ]
+    },
+    {
+      "name": "Computer Vision",
+      "keywords": [
+        "OCR",
+        "Vision LLMs (Qwen2-VL)",
+        "Face recognition",
+        "Anti-spoofing"
+      ]
+    },
+    {
+      "name": "MLOps & Cloud",
+      "keywords": [
+        "Docker",
+        "Kubernetes",
+        "CI/CD",
+        "Kafka",
+        "AWS",
+        "Azure (Blob Storage, AI Search)",
+        "AWS CodeBuild, CodePipeline, CodeDeploy, ECS",
+        "Prometheus",
+        "Grafana"
+      ]
+    },
+    {
+      "name": "Web",
+      "keywords": [
+        "ReactJS",
+        "FastAPI",
+        "MongoDB",
+        "WebSocket",
+        "PostgreSQL/pgvector",
+        "Java"
+      ]
+    },
+    {
+      "name": "Code Analysis & Documentation",
+      "keywords": [
+        "Knowledge graphs",
+        "Tree-sitter AST",
+        "C/AUTOSAR static analysis",
+        "Automotive SPICE (SWE.3)",
+        "PlantUML",
+        "SRS and software design documents"
+      ]
+    }
+  ],
   "languages": [],
   "interests": [],
   "references": [],
@@ -154,6 +228,29 @@
   ],
   "activities": [
     {
+      "organization": "AI Thực Chiến (AI20K) – Vingroup x VinUni",
+      "position": "Mentor",
+      "url": "https://tuoitre.vn/vingroup-dao-tao-20-000-nhan-tai-ai-thuc-chien-tro-cap-8-trieu-dong-thang-20260128111610322.htm",
+      "startDate": "10/2026",
+      "endDate": "Present",
+      "summary": "",
+      "highlights": [
+        "Mentor for Cohorts 5 and 6 of AI20K, a Vingroup social program training 20,000 AI engineers for Viet Nam",
+        "Mentored 8 teams (32 members) building AI products"
+      ]
+    },
+    {
+      "organization": "FPT Software x Yokogawa AI Bootcamp",
+      "position": "Mentor & Final Showcase Judge",
+      "startDate": "10/2026",
+      "endDate": "",
+      "summary": "",
+      "highlights": [
+        "Mentored participants in the AI bootcamp co-organized by FPT Software and Yokogawa",
+        "Judge for the AI Bootcamp Final Showcase"
+      ]
+    },
+    {
       "organization": "Mrzaizai2k - AI",
       "position": "Youtuber",
       "url": "https://www.youtube.com/@mrzaizai2k-ai704",
@@ -174,7 +271,8 @@
       "summary": "",
       "highlights": [
         "Write technical blogs about AI, ML, and DL.",
-        "Published 26 posts with 8211 total post views and 2645 followers."
+        "Published 26 posts with 8211 total post views and 2645 followers.",
+        "Top 7 weekly \"must-read\" post on Dev.to"
       ]
     },
     {
@@ -184,7 +282,9 @@
       "startDate": "2023",
       "endDate": "",
       "summary": "",
-      "highlights": ["As a Nam A Bank representative, my speech, 'Big Data: The Fire of the 21st Century?', highlighted Big Data's role in modern banking"]
+      "highlights": [
+        "As a Nam A Bank representative, my speech, 'Big Data: The Fire of the 21st Century?', highlighted Big Data's role in modern banking"
+      ]
     },
     {
       "organization": "Bach Khoa Music Club – Ho Chi Minh City University of Technology",

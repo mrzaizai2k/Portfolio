@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QR Code Generator — Styled + Logo</title>
+  <link rel="stylesheet" href="../theme.css" />
+  <style>
+    :root{
+      --bg:#0c0513;
+      --card:rgba(27,26,46,.66);
+      --text:#f5f3f7;
+      --muted:#a588c0;
+      --accent:#c770f0;
+      --ring:rgba(199,112,240,.55);
+      --line:rgba(199,112,240,.22);
+      --field:#1a1029;
+    }
+    html,body{height:100%}
+    body{margin:0;font-family:var(--mz-font);
+      color:var(--text);background:radial-gradient(circle at 20% 0%,#1b1029,#0c0513 60%) fixed;}
+    .wrap{max-width:1100px;margin:32px auto;padding:24px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 40px rgba(0,0,0,.45);overflow:hidden;backdrop-filter:blur(6px)}
+    header{padding:22px 24px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:center;justify-content:space-between}
+    header h1{font-size:20px;line-height:1.2;margin:0;font-weight:700;color:var(--accent)}
+    header .sub{font-size:12px;color:var(--muted)}
+    .content{display:grid;gap:18px;grid-template-columns:1.25fr .75fr;padding:18px}
+    @media (max-width:980px){.content{grid-template-columns:1fr}}
+    .panel{padding:16px;border:1px solid var(--line);border-radius:14px;background:rgba(12,5,19,.35)}
+    .panel h2{margin:0 0 10px 0;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+    textarea{width:100%;box-sizing:border-box;min-height:120px;border:1px solid var(--line);border-radius:12px;padding:12px;resize:vertical;font-size:14px;background:var(--field);color:var(--text);font-family:inherit}
+    textarea::placeholder,input::placeholder{color:#7d6b91}
+    select,input[type="number"],input[type="text"]{background:var(--field);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 8px;box-sizing:border-box;font-family:inherit}
+    input[type="file"]{color:var(--muted);font-family:inherit}
+    input[type="file"]::file-selector-button{background:transparent;color:var(--text);border:1px solid var(--accent);border-radius:8px;padding:6px 10px;margin-right:8px;cursor:pointer}
+    input[type="color"]{background:var(--field);border:1px solid var(--line);border-radius:8px;height:34px;padding:2px}
+    input[type="range"]{accent-color:var(--accent)}
+    textarea:focus,select:focus,input:focus{outline:2px solid var(--ring);outline-offset:1px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+    .row4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    @media (max-width:680px){.row,.row3,.row4{grid-template-columns:1fr}}
+    label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+    input[type="range"],select,input[type="number"],input[type="color"],input[type="text"]{width:100%}
+    .hint{font-size:12px;color:var(--muted)}
+    .preview{display:flex;align-items:center;justify-content:center;border:1px dashed var(--line);border-radius:14px;padding:18px;background:#f8fafc;min-height:360px}
+    .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    button{appearance:none;border:1px solid #be50f4;background:#be50f4;color:#fff;border-radius:12px;padding:10px 14px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .2s,transform .2s}
+    button:hover{background:#c770f0;transform:translateY(-1px)}
+    button.secondary{background:transparent;color:var(--text);border-color:var(--accent)}
+    button.secondary:hover{background:rgba(199,112,240,.15)}
+    button:focus{outline:3px solid var(--ring);outline-offset:1px}
+    .footer{padding:14px 18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}
+    .error{margin-top:8px;color:#ff8a9b;font-size:13px}
+    .chip{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--accent);border-radius:999px;padding:6px 10px;background:transparent;color:var(--accent);cursor:pointer}
+    .chip:hover{background:rgba(199,112,240,.15)}
+    .spacer{flex:1}
+    .grid-gap{display:grid;gap:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="tools-back" href="../">← All tools</a>
+    <div class="card">
+      <header>
+        <div>
+          <h1>QR Code Generator</h1>
+        </div>
+        <div class="chip" onclick="window.open('https://github.com/mrzaizai2k/simple_qr_generator','_blank')">
+          Made by @mrzaizai2k
+        </div>
+      </header>
+      <div class="content">
+        <!-- Left: Inputs -->
+        <section class="panel">
+          <h2>Input</h2>
+          <label for="data">Text or URL</label>
+          <textarea id="data" placeholder="https://example.com or any text"></textarea>
+
+          <div class="row" style="margin-top:10px">
+            <div>
+              <label for="size">Size (px): <span id="sizeVal" class="hint"></span></label>
+              <input type="range" id="size" min="128" max="1024" step="32" value="384" />
+            </div>
+            <div>
+              <label for="ecc">Error correction</label>
+              <select id="ecc">
+                <option value="L">L (7%)</option>
+                <option value="M" selected>M (15%)</option>
+                <option value="Q">Q (25%)</option>
+                <option value="H">H (30%)</option>
+              </select>
+            </div>
+          </div>
+
+          <h2 style="margin-top:18px">Appearance</h2>
+          <div class="row3">
+            <div>
+              <label for="type">Type (dots)</label>
+              <select id="type">
+                <option value="square">Square</option>
+                <option value="dots">Dots</option>
+                <option value="rounded">Rounded</option>
+                <option value="extra-rounded">Extra Rounded</option>
+                <option value="classy">Classy</option>
+                <option value="classy-rounded" selected>Classy Rounded</option>
+              </select>
+            </div>
+            <div>
+              <label for="cornerSquare">Corner square</label>
+              <select id="cornerSquare">
+                <option value="square">Square</option>
+                <option value="extra-rounded">Extra Rounded</option>
+                <option value="dot">Dot</option>
+              </select>
+            </div>
+            <div>
+              <label for="cornerDot">Corner dot</label>
+              <select id="cornerDot">
+                <option value="square">Square</option>
+                <option value="dot" selected>Dot</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row3" style="margin-top:8px">
+            <div>
+              <label for="fg">Dots color</label>
+              <input type="color" id="fg" value="#000000" />
+            </div>
+            <div>
+              <label for="cornerSqColor">Corner square color</label>
+              <input type="color" id="cornerSqColor" value="#000000" />
+            </div>
+            <div>
+              <label for="cornerDotColor">Corner dot color</label>
+              <input type="color" id="cornerDotColor" value="#000000" />
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:8px">
+            <div>
+              <label for="bg">Background</label>
+              <input type="color" id="bg" value="#ffffff" />
+            </div>
+            <div>
+              <label for="margin">Margin (quiet zone)</label>
+              <input type="number" id="margin" min="0" max="32" value="2" />
+            </div>
+          </div>
+
+          <h2 style="margin-top:18px">Logo</h2>
+          <div class="grid-gap">
+            <div class="row">
+              <div>
+                <label for="logoUrl">Logo URL</label>
+                <input type="text" id="logoUrl" placeholder="https://.../logo.png (supports PNG/SVG)" />
+              </div>
+              <div>
+                <label for="logoFile">Or upload</label>
+                <input type="file" id="logoFile" accept="image/*,image/svg+xml" />
+              </div>
+            </div>
+            <div class="row3">
+              <div>
+                <label for="logoSize">Logo size (% of QR)</label>
+                <input type="range" id="logoSize" min="8" max="35" step="1" value="20" />
+              </div>
+              <div>
+                <label for="logoMargin">Logo margin (px)</label>
+                <input type="number" id="logoMargin" min="0" max="20" value="2" />
+              </div>
+              <div>
+                <label>&nbsp;</label>
+                <div class="btns">
+                  <button id="removeLogo" class="secondary">Remove logo</button>
+                </div>
+              </div>
+            </div>
+            <div class="hint">Tip: higher ECC (Q/H) is recommended when using a logo.</div>
+          </div>
+
+          <div class="btns" style="margin-top:10px">
+            <button id="paste">Paste Text</button>
+            <button id="clear" class="secondary">Clear</button>
+          </div>
+          <div id="error" class="error" role="alert" aria-live="polite"></div>
+        </section>
+
+        <!-- Right: Preview -->
+        <section class="panel">
+          <h2>Preview</h2>
+          <div class="preview" id="preview">
+            <div id="qr" aria-label="QR code preview"></div>
+          </div>
+          <div class="btns">
+            <button id="dlPng">Download PNG</button>
+            <button id="dlSvg" class="secondary">Download SVG</button>
+            <button id="copyPng" class="secondary">Copy PNG</button>
+          </div>
+        </section>
+      </div>
+      <div class="footer">
+        <div>Pro tip: set ECC to Q/H when placing a logo.</div>
+        <div class="spacer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Styled QR library -->
+  <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
+  <script>
+    // ===== Elements =====
+    const $ = (s)=>document.querySelector(s);
+    const dataEl = $('#data');
+    const sizeEl = $('#size');
+    const sizeValEl = $('#sizeVal');
+    const eccEl = $('#ecc');
+    const typeEl = $('#type');
+    const cornerSquareEl = $('#cornerSquare');
+    const cornerDotEl = $('#cornerDot');
+    const fgEl = $('#fg');
+    const cornerSqColorEl = $('#cornerSqColor');
+    const cornerDotColorEl = $('#cornerDotColor');
+    const bgEl = $('#bg');
+    const marginEl = $('#margin');
+
+    const logoUrlEl = $('#logoUrl');
+    const logoFileEl = $('#logoFile');
+    const logoSizeEl = $('#logoSize');
+    const logoMarginEl = $('#logoMargin');
+
+    const err = $('#error');
+
+    const fmtInt = (n)=> new Intl.NumberFormat().format(n);
+
+    function setSizeLabel(){ sizeValEl.textContent = fmtInt(sizeEl.value) + ' px'; }
+
+    function filenameBase(){
+      const t = (dataEl.value || 'qr').trim().replace(/\s+/g,'-').replace(/[^a-z0-9\-_.]/gi,'');
+      return t.slice(0,40) || 'qr';
+    }
+
+    // ===== QR Instance =====
+    const qr = new QRCodeStyling({
+      width: parseInt(sizeEl.value,10),
+      height: parseInt(sizeEl.value,10),
+      type: 'canvas',
+      data: '',
+      margin: parseInt(marginEl.value,10),
+      image: undefined,
+      qrOptions: { errorCorrectionLevel: eccEl.value },
+      backgroundOptions: { color: bgEl.value },
+      dotsOptions: { color: fgEl.value, type: typeEl.value },
+      cornersSquareOptions: { color: cornerSqColorEl.value, type: cornerSquareEl.value },
+      cornersDotOptions: { color: cornerDotColorEl.value, type: cornerDotEl.value },
+      imageOptions: { crossOrigin: 'anonymous', hideBackgroundDots: true, imageSize: parseInt(logoSizeEl.value,10)/100, margin: parseInt(logoMarginEl.value,10) }
+    });
+
+    qr.append(document.getElementById('qr'));
+
+    // ===== Update Helpers =====
+    function setError(msg){ err.textContent = msg || ''; }
+
+    function updateQR(){
+      setError('');
+      const size = parseInt(sizeEl.value,10);
+      const margin = parseInt(marginEl.value,10) || 0;
+      const ecc = eccEl.value;
+      const bg = bgEl.value; const fg = fgEl.value;
+      const sqC = cornerSqColorEl.value; const dotC = cornerDotColorEl.value;
+      const data = dataEl.value || '';
+      qr.update({
+        width: size, height: size,
+        data,
+        margin,
+        qrOptions: { errorCorrectionLevel: ecc },
+        backgroundOptions: { color: bg },
+        dotsOptions: { type: typeEl.value, color: fg },
+        cornersSquareOptions: { type: cornerSquareEl.value, color: sqC },
+        cornersDotOptions: { type: cornerDotEl.value, color: dotC },
+        imageOptions: { hideBackgroundDots: true, imageSize: parseInt(logoSizeEl.value,10)/100, margin: parseInt(logoMarginEl.value,10) }
+      });
+    }
+
+    function setLogoFromUrl(url){
+      if(!url){ qr.update({ image: undefined }); return; }
+      qr.update({ image: url });
+    }
+
+    function setLogoFromFile(file){
+      if(!file){ return; }
+      const reader = new FileReader();
+      reader.onload = () => { qr.update({ image: reader.result }); };
+      reader.onerror = () => setError('Failed to read image file.');
+      reader.readAsDataURL(file);
+    }
+
+    // ===== Events =====
+    const deb = (fn, ms=60)=>{ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a),ms); } };
+
+    dataEl.addEventListener('input', deb(updateQR));
+    sizeEl.addEventListener('input', ()=>{ setSizeLabel(); updateQR(); });
+    eccEl.addEventListener('change', updateQR);
+    typeEl.addEventListener('change', updateQR);
+    cornerSquareEl.addEventListener('change', updateQR);
+    cornerDotEl.addEventListener('change', updateQR);
+    fgEl.addEventListener('input', updateQR);
+    cornerSqColorEl.addEventListener('input', updateQR);
+    cornerDotColorEl.addEventListener('input', updateQR);
+    bgEl.addEventListener('input', updateQR);
+    marginEl.addEventListener('input', updateQR);
+
+    logoUrlEl.addEventListener('change', ()=> setLogoFromUrl(logoUrlEl.value.trim()));
+    logoFileEl.addEventListener('change', ()=> setLogoFromFile(logoFileEl.files[0]));
+    logoSizeEl.addEventListener('input', updateQR);
+    logoMarginEl.addEventListener('input', updateQR);
+
+    document.getElementById('removeLogo').addEventListener('click', ()=>{ logoUrlEl.value=''; logoFileEl.value=''; qr.update({ image: undefined }); });
+
+    document.getElementById('clear').addEventListener('click', ()=>{ dataEl.value=''; updateQR(); });
+
+    document.getElementById('paste').addEventListener('click', async ()=>{
+      try{ dataEl.value = await navigator.clipboard.readText(); updateQR(); }
+      catch{ setError('Clipboard access was blocked by the browser.'); }
+    });
+
+    // Downloads and copy
+    document.getElementById('dlPng').addEventListener('click', ()=>{
+      qr.download({ name: filenameBase(), extension: 'png' });
+    });
+    document.getElementById('dlSvg').addEventListener('click', ()=>{
+      qr.download({ name: filenameBase(), extension: 'svg' });
+    });
+    document.getElementById('copyPng').addEventListener('click', async ()=>{
+      try{
+        // export to blob then write to clipboard
+        const blob = await qr.getRawData('png');
+        await navigator.clipboard.write([ new ClipboardItem({ 'image/png': blob }) ]);
+        setError('');
+      }catch(e){ setError('Copy failed — your browser may block image clipboard access.'); }
+    });
+
+    // Init
+    setSizeLabel();
+    updateQR();
+  </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mrzaizai2k Tools</title>
+  <meta name="description" content="Small, free browser tools made by Mrzaizai2k." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0c0513;
+      --bg-2: #1b1029;
+      --card: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(199, 112, 240, 0.25);
+      --text: #f5f3f7;
+      --muted: #a99bb8;
+      --accent: #c770f0;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: "Raleway", system-ui, sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at 20% 0%, var(--bg-2), var(--bg) 60%) fixed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; }
+    .top {
+      max-width: 960px; width: 100%; margin: 0 auto; padding: 20px 16px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 14px;
+    }
+    .top a { color: var(--muted); text-decoration: none; transition: color .2s; }
+    .top a:hover { color: var(--accent); }
+    main { max-width: 960px; width: 100%; margin: 0 auto; padding: 32px 16px 48px; flex: 1; }
+    h1 { font-size: clamp(28px, 5vw, 42px); margin: 0 0 8px; }
+    h1 span { color: var(--accent); }
+    .lead { color: var(--muted); margin: 0 0 40px; font-size: 17px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+    .card {
+      display: block; text-decoration: none;
+      background: var(--card); border: 1px solid var(--card-border); border-radius: 16px;
+      padding: 24px; transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .card:hover, .card:focus-visible {
+      transform: translateY(-4px); border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(199, 112, 240, 0.2); outline: none;
+    }
+    .icon { font-size: 32px; line-height: 1; margin-bottom: 14px; }
+    .card h2 { font-size: 20px; margin: 0 0 8px; }
+    .card p { color: var(--muted); margin: 0 0 16px; font-size: 15px; line-height: 1.5; }
+    .go { color: var(--accent); font-weight: 600; font-size: 14px; }
+    .card.soon { opacity: .45; pointer-events: none; border-style: dashed; }
+    footer { text-align: center; color: var(--muted); font-size: 13px; padding: 20px 16px; }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <a href="https://mrzaizai2k.com">← mrzaizai2k.com</a>
+    <a href="https://github.com/mrzaizai2k" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </div>
+
+  <main>
+    <h1>Little <span>tools</span> ✨</h1>
+    <p class="lead">Small side projects I built for fun. They're free and run entirely in your browser.</p>
+
+    <div class="grid">
+      <a class="card" href="qr/index.html">
+        <div class="icon">🔳</div>
+        <h2>QR Code Generator</h2>
+        <p>Make styled QR codes with custom colors, dot shapes and your own logo, then download them as PNG or SVG.</p>
+        <span class="go">Open →</span>
+      </a>
+
+      <a class="card" href="typing/index.html">
+        <div class="icon">⌨️</div>
+        <h2>Simple Typing</h2>
+        <p>Practice typing in real time with live WPM and accuracy tracking.</p>
+        <span class="go">Open →</span>
+      </a>
+
+      <div class="card soon" aria-hidden="true">
+        <div class="icon">🧪</div>
+        <h2>More coming</h2>
+        <p>Whatever I build next.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>© <span id="y"></span> Mrzaizai2k</footer>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

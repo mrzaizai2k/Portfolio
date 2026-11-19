@@ -1,0 +1,33 @@
+/* Shared Mrzaizai2k portfolio theme for tools.mrzaizai2k.com */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
+
+:root {
+  --mz-bg: #0c0513;
+  --mz-bg-2: #1b1029;
+  --mz-card: rgba(27, 26, 46, 0.66);
+  --mz-input: #1a1029;
+  --mz-border: rgba(199, 112, 240, 0.22);
+  --mz-text: #f5f3f7;
+  --mz-muted: #a588c0;
+  --mz-accent: #c770f0;
+  --mz-btn: #be50f4;
+  --mz-deep: #2d1950;
+  --mz-font: "Raleway", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+::selection { background: rgba(199, 112, 240, 0.35); }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #2d1950; }
+::-webkit-scrollbar-thumb { background: rgba(178, 121, 216, 0.96); border-radius: 12px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(222, 130, 250, 0.91); }
+
+.tools-back {
+  display: inline-block;
+  margin: 0 0 14px;
+  color: var(--mz-muted);
+  font-family: var(--mz-font);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.tools-back:hover { color: var(--mz-accent); }

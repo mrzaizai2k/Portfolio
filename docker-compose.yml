@@ -23,6 +23,8 @@ services:
     container_name: nginx
     ports:
       - "80:80"
+    volumes:
+      - ./tools:/usr/share/nginx/tools:ro
     networks:
       - portfolio-network
     depends_on:

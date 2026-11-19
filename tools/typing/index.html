@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Typing Practice</title>
+    <link rel="stylesheet" href="../theme.css">
+    <style>
+        body {
+            font-family: var(--mz-font);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4eefa;
+            color: #2d1950;
+            transition: background-color 0.3s ease;
+        }
+        
+        body.dark-mode {
+            background: radial-gradient(circle at 20% 0%, #1b1029, #0c0513 60%) fixed;
+            background-color: #0c0513;
+            color: #f5f3f7;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(199,112,240,0.22);
+            box-shadow: 0 4px 20px rgba(45,25,80,0.12);
+            transition: background-color 0.3s ease;
+        }
+        
+        body.dark-mode .container {
+            background: rgba(27,26,46,0.66);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+            backdrop-filter: blur(6px);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2d1950;
+            margin-bottom: 30px;
+        }
+        
+        body.dark-mode h1 {
+            color: #c770f0;
+        }
+        
+        .reference-container {
+            background: #faf6fd;
+            border: 2px solid #e6d5f3;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+            font-family: 'Courier New', monospace;
+            font-size: 20px;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            outline: none;
+            cursor: text;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .reference-container:focus {
+            border-color: #c770f0;
+        }
+        
+        body.dark-mode .reference-container {
+            background: #1a1029;
+            border-color: rgba(199,112,240,0.3);
+        }
+        
+        body.dark-mode .reference-container:focus {
+            border-color: #c770f0;
+        }
+        
+        .correct { 
+            background-color: #d4edda; 
+            color: #155724; 
+            padding: 2px 1px;
+            border-radius: 3px;
+        }
+        
+        body.dark-mode .correct {
+            background-color: rgba(52,199,120,0.22);
+            color: #8ff0b8;
+        }
+        
+        .incorrect { 
+            background-color: #f8d7da; 
+            color: #721c24; 
+            padding: 2px 1px;
+            border-radius: 3px;
+        }
+        
+        body.dark-mode .incorrect {
+            background-color: rgba(255,90,110,0.25);
+            color: #ffa3b0;
+        }
+        
+        .pending { 
+            color: #7d6b91; 
+        }
+        
+        body.dark-mode .pending {
+            color: #a588c0;
+        }
+        
+        .current {
+            background-color: #ecd6f9;
+            color: #6b1d99;
+            padding: 2px 1px;
+            border-radius: 3px;
+            animation: blink 1s infinite;
+        }
+        
+        body.dark-mode .current {
+            background-color: #c770f0;
+            color: #0c0513;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+        
+        #typing-input {
+            display: none;
+        }
+        
+        #typing-input:focus {
+            border-color: #be50f4;
+            box-shadow: 0 0 0 3px rgba(190,80,244,0.25);
+        }
+        
+        body.dark-mode #typing-input:focus {
+            border-color: #c770f0;
+            box-shadow: 0 0 0 3px rgba(199,112,240,0.25);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #be50f4 0%, #6b2fa3 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 120px;
+            margin: 5px;
+            box-shadow: 0 4px 15px rgba(107,47,163,0.25);
+            position: relative;
+        }
+        
+        body.dark-mode .stat-box {
+            background: linear-gradient(135deg, #2d1950 0%, #1b1029 100%);
+            border: 1px solid rgba(199,112,240,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.35);
+        }
+        
+        body.dark-mode .stat-value {
+            color: #c770f0;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        /* CHANGED: Added info icon and tooltip styles */
+        .info-icon {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            cursor: help;
+            position: relative;
+        }
+        
+        .tooltip {
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(12,5,19,0.95);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            pointer-events: none;
+            max-width: 200px;
+            white-space: normal;
+            text-align: left;
+            line-height: 1.3;
+        }
+        
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: rgba(12,5,19,0.95);
+        }
+        
+        .info-icon:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        body.dark-mode .tooltip {
+            background: rgba(245,243,247,0.97);
+            color: #2d1950;
+        }
+        
+        body.dark-mode .tooltip::after {
+            border-top-color: rgba(245,243,247,0.97);
+        }
+        /* END CHANGED */
+        
+        .progress-bar {
+            background-color: #ecdff5;
+            border-radius: 10px;
+            height: 20px;
+            margin: 20px 0;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+        
+        body.dark-mode .progress-bar {
+            background-color: #2d1950;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #be50f4, #c770f0);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        body.dark-mode .progress-fill {
+            background: linear-gradient(90deg, #8a2fc4, #c770f0);
+        }
+        
+        .reset-btn, .theme-toggle-btn {
+            background: #be50f4;
+            color: white;
+            border: 1px solid #be50f4;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-family: inherit;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 15px rgba(190,80,244,0.3);
+            margin: 10px;
+        }
+        
+        body.dark-mode .reset-btn, body.dark-mode .theme-toggle-btn {
+            background: #be50f4;
+            box-shadow: 0 4px 15px rgba(190,80,244,0.25);
+        }
+        
+        .theme-toggle-btn, body.dark-mode .theme-toggle-btn {
+            background: transparent;
+            color: inherit;
+            border-color: #c770f0;
+            box-shadow: none;
+        }
+        
+        .reset-btn:hover, .theme-toggle-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .reset-btn:hover, body.dark-mode .reset-btn:hover {
+            background: #c770f0;
+        }
+        
+        .theme-toggle-btn:hover, body.dark-mode .theme-toggle-btn:hover {
+            background: rgba(199,112,240,0.15);
+        }
+        
+        .completion-message {
+            background: linear-gradient(135deg, #be50f4, #6b2fa3);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 18px;
+            animation: celebration 0.5s ease-in-out;
+        }
+        
+        body.dark-mode .completion-message {
+            background: linear-gradient(135deg, #8a2fc4, #2d1950);
+            border: 1px solid #c770f0;
+        }
+        
+        @keyframes celebration {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .controls-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #word-count {
+            width: 100px;
+            padding: 12px 15px;
+            border: 2px solid #be50f4;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: inherit;
+            text-align: center;
+            background: white;
+            color: #2d1950;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(190,80,244,0.1);
+        }
+
+        #word-count:focus {
+            outline: none;
+            border-color: #c770f0;
+            box-shadow: 0 0 0 3px rgba(190,80,244,0.25);
+            transform: translateY(-1px);
+        }
+
+        body.dark-mode #word-count {
+            background: #1a1029;
+            border-color: rgba(199,112,240,0.5);
+            color: #f5f3f7;
+            box-shadow: none;
+        }
+
+        body.dark-mode #word-count:focus {
+            border-color: #c770f0;
+            box-shadow: 0 0 0 3px rgba(199,112,240,0.25);
+        }
+
+        .fetch-btn {
+            padding: 12px 24px;
+            background: #be50f4;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: inherit;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(190,80,244,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fetch-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .fetch-btn:hover {
+            background: #c770f0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(190,80,244,0.4);
+        }
+
+        .fetch-btn:hover::before {
+            left: 100%;
+        }
+
+        .fetch-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(190,80,244,0.3);
+        }
+
+        .fetch-btn:disabled {
+            background: linear-gradient(135deg, #9ca3af, #6b7280);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 2px 8px rgba(156,163,175,0.2);
+        }
+
+        .fetch-btn:disabled:hover {
+            transform: none;
+            box-shadow: 0 2px 8px rgba(156,163,175,0.2);
+        }
+
+        body.dark-mode .fetch-btn {
+            background: #be50f4;
+            box-shadow: 0 4px 15px rgba(190,80,244,0.25);
+        }
+
+        body.dark-mode .fetch-btn:hover {
+            background: #c770f0;
+            box-shadow: 0 6px 20px rgba(199,112,240,0.35);
+        }
+
+        body.dark-mode .fetch-btn:disabled {
+            background: #2d1950;
+            color: #a588c0;
+            box-shadow: none;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        #reference-input {
+            width: 97%;
+            height: 60px;
+            padding: 10px;
+            border: 2px solid #be50f4;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: inherit;
+            margin-bottom: 15px;
+            background: white;
+            color: #2d1950;
+        }
+
+        #reference-input:focus {
+            outline: none;
+            border-color: #c770f0;
+            box-shadow: 0 0 0 3px rgba(199,112,240,0.25);
+        }
+
+        body.dark-mode #reference-input {
+            background: #1a1029;
+            border-color: rgba(199,112,240,0.5);
+            color: #f5f3f7;
+        }
+
+        body.dark-mode #reference-input::placeholder {
+            color: #a588c0;
+        }
+
+    </style>
+</head>
+<body class="dark-mode">
+    <a class="tools-back" href="../">← All tools</a>
+    <div class="container">
+        <h1>🚀 Simple Typing</h1>
+        
+        <textarea 
+            id="reference-input" 
+            placeholder="Enter your reference text here (single line)... or use the button to fetch news."
+        ></textarea>
+        
+        <div class="controls-container">
+            <input id="word-count" type="number" min="1" value="50" placeholder="Words" />
+            <button onclick="fetchNews('vi')" class="fetch-btn">🇻🇳 Fetch Vi</button>
+            <button onclick="fetchNews('en')" class="fetch-btn">🇺🇸 Fetch En</button>
+        </div>
+        
+        <div id="reference-display" class="reference-container" tabindex="0"></div>
+        
+        <!-- CHANGED: Updated stats section with new metrics and info icons -->
+        <div class="stats">
+            <div class="stat-box">
+                <span id="time-stat" class="stat-value">0.0</span>
+                <div class="stat-label">
+                    ⏱ TIME (sec)
+                    <span class="info-icon">i
+                        <div class="tooltip">Total time elapsed since you started typing</div>
+                    </span>
+                </div>
+            </div>
+            <div class="stat-box">
+                <span id="accuracy-stat" class="stat-value">100</span>
+                <div class="stat-label">
+                    ✅ CHAR ACCURACY (%)
+                    <span class="info-icon">i
+                        <div class="tooltip">Percentage of characters typed correctly (correct chars ÷ total chars typed)</div>
+                    </span>
+                </div>
+            </div>
+            <div class="stat-box">
+                <span id="word-accuracy-stat" class="stat-value">100</span>
+                <div class="stat-label">
+                    📝 WORD ACCURACY (%)
+                    <span class="info-icon">i
+                        <div class="tooltip">Percentage of complete words typed correctly (correct words ÷ total words typed)</div>
+                    </span>
+                </div>
+            </div>
+            <div class="stat-box">
+                <span id="wpm-stat" class="stat-value">0</span>
+                <div class="stat-label">
+                    ⌨️ TOTAL WPM
+                    <span class="info-icon">i
+                        <div class="tooltip">Words per minute based on all typed words (including incorrect ones)</div>
+                    </span>
+                </div>
+            </div>
+            <div class="stat-box">
+                <span id="correct-wpm-stat" class="stat-value">0</span>
+                <div class="stat-label">
+                    🎯 CORRECT WPM
+                    <span class="info-icon">i
+                        <div class="tooltip">Words per minute based only on correctly typed words</div>
+                    </span>
+                </div>
+            </div>
+            <div class="stat-box">
+                <span id="progress-stat" class="stat-value">0/0</span>
+                <div class="stat-label">
+                    📊 PROGRESS
+                    <span class="info-icon">i
+                        <div class="tooltip">Characters typed vs total characters in the text</div>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- END CHANGED -->
+        
+        <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill" style="width: 0%">0%</div>
+        </div>
+        
+        <div id="completion-message" class="completion-message" style="display: none;"></div>
+        
+        <div style="text-align: center;">
+            <button class="theme-toggle-btn" onclick="toggleTheme()">🌙 Toggle Theme</button>
+            <button class="reset-btn" onclick="resetPractice()">🔄 Reset Practice</button>
+        </div>
+    </div>
+
+    <script>
+        let referenceText = "";
+        let startTime = null;
+        let typedText = "";
+        
+        const referenceInput = document.getElementById('reference-input');
+        const referenceDisplay = document.getElementById('reference-display');
+        const timeSpan = document.getElementById('time-stat');
+        const accuracySpan = document.getElementById('accuracy-stat');
+        const wpmSpan = document.getElementById('wpm-stat');
+        const progressSpan = document.getElementById('progress-stat');
+        const progressFill = document.getElementById('progress-fill');
+        const completionMessage = document.getElementById('completion-message');
+        // CHANGED: Added references to new stat elements
+        const wordAccuracySpan = document.getElementById('word-accuracy-stat');
+        const correctWpmSpan = document.getElementById('correct-wpm-stat');
+        // END CHANGED
+        
+        // Handle reference text input
+        referenceInput.addEventListener('input', function(e) {
+            referenceText = e.target.value.replace(/\n/g, ' ').trim();
+            resetPractice();
+        });
+        
+        // Handle typing directly on reference display
+        referenceDisplay.addEventListener('keydown', function(e) {
+            // Prevent default for most keys except special ones
+            if (!e.ctrlKey && !e.altKey && e.key.length === 1) {
+                e.preventDefault();
+                
+                // Add the typed character
+                typedText += e.key;
+                
+                // Start timer on first character
+                if (typedText.length === 1 && startTime === null) {
+                    startTime = Date.now();
+                }
+                
+                updateDisplay();
+            } else if (e.key === 'Backspace') {
+                e.preventDefault();
+                typedText = typedText.slice(0, -1);
+                updateDisplay();
+            }
+        });
+        
+        // Initialize display
+        updateDisplay();
+        
+        function updateDisplay() {
+            // Update reference text with colors
+            let coloredText = '';
+            let correctChars = 0;
+            
+            for (let i = 0; i < referenceText.length; i++) {
+                const refChar = referenceText[i];
+                
+                if (i < typedText.length) {
+                    if (typedText[i] === refChar) {
+                        coloredText += `<span class="correct">${refChar}</span>`;
+                        correctChars++;
+                    } else {
+                        coloredText += `<span class="incorrect">${refChar}</span>`;
+                    }
+                } else if (i === typedText.length) {
+                    // Current character to type
+                    coloredText += `<span class="current">${refChar}</span>`;
+                } else {
+                    coloredText += `<span class="pending">${refChar}</span>`;
+                }
+            }
+            
+            referenceDisplay.innerHTML = coloredText;
+            
+            // Auto-scroll to current position
+            const currentSpan = referenceDisplay.querySelector('.current');
+            if (currentSpan && referenceText.length > 0) {
+                const containerWidth = referenceDisplay.clientWidth;
+                const spanLeft = currentSpan.offsetLeft;
+                
+                // Only scroll when current position is getting close to right edge
+                const scrollThreshold = containerWidth * 0.7; // Start scrolling when 70% across
+                const currentScrollLeft = referenceDisplay.scrollLeft;
+                const relativePosition = spanLeft - currentScrollLeft;
+                
+                if (relativePosition > scrollThreshold) {
+                    // Scroll by smaller increments to keep text visible
+                    referenceDisplay.scrollLeft = currentScrollLeft + (containerWidth * 0.1);
+                }
+            }
+            
+            // CHANGED: Enhanced stats calculation with new metrics
+            if (startTime) {
+                const elapsedTime = (Date.now() - startTime) / 1000;
+                
+                // Character accuracy (existing metric)
+                const charAccuracy = typedText.length > 0 ? (correctChars / typedText.length) * 100 : 100;
+                
+                // Word-based calculations
+                const referenceWords = referenceText.trim().split(/\s+/);
+                let correctWords = 0;
+                let totalWordsAttempted = 0;
+                
+                // Track current position in reference text
+                let refIndex = 0;
+                let currentWordStart = 0;
+                
+                // Go through reference words and see how many we've attempted/completed
+                for (let wordIdx = 0; wordIdx < referenceWords.length; wordIdx++) {
+                    const refWord = referenceWords[wordIdx];
+                    const wordEnd = refIndex + refWord.length;
+                    
+                    // Check if we've typed enough characters to reach this word
+                    if (typedText.length > refIndex) {
+                        totalWordsAttempted++;
+                        
+                        // Check if we've typed this entire word correctly
+                        let wordCorrect = true;
+                        
+                        // If we've typed past this word or exactly to its end
+                        if (typedText.length >= wordEnd) {
+                            // Check each character in this word
+                            for (let i = 0; i < refWord.length; i++) {
+                                if (refIndex + i >= typedText.length || typedText[refIndex + i] !== refWord[i]) {
+                                    wordCorrect = false;
+                                    break;
+                                }
+                            }
+                            
+                            // Also check that the next character (if exists) is a space or we're at the end
+                            if (wordCorrect && typedText.length > wordEnd) {
+                                if (wordIdx < referenceWords.length - 1 && typedText[wordEnd] !== ' ') {
+                                    wordCorrect = false;
+                                }
+                            }
+                            
+                            if (wordCorrect) {
+                                correctWords++;
+                            }
+                        } else {
+                            // We're still typing this word, check if what we've typed so far is correct
+                            wordCorrect = true;
+                            const typedPartLength = Math.min(typedText.length - refIndex, refWord.length);
+                            
+                            for (let i = 0; i < typedPartLength; i++) {
+                                if (typedText[refIndex + i] !== refWord[i]) {
+                                    wordCorrect = false;
+                                    break;
+                                }
+                            }
+                            
+                            // For partial words, only count as correct if we're still typing correctly
+                            // But don't add to correctWords until the word is complete
+                            if (!wordCorrect) {
+                                // Word is being typed incorrectly, count it but don't increment correctWords
+                            }
+                            // If typing correctly but incomplete, don't count as correct yet
+                        }
+                    }
+                    
+                    // Move reference index to next word (including space)
+                    refIndex = wordEnd;
+                    if (wordIdx < referenceWords.length - 1) {
+                        refIndex++; // Skip space
+                    }
+                }
+                
+                const wordAccuracy = totalWordsAttempted > 0 ? (correctWords / totalWordsAttempted) * 100 : 100;
+                
+                // Total WPM (based on words attempted)
+                const totalWpm = elapsedTime > 0 ? (totalWordsAttempted / elapsedTime) * 60 : 0;
+                
+                // Correct WPM (only correct words)
+                const correctWpm = elapsedTime > 0 ? (correctWords / elapsedTime) * 60 : 0;
+                
+                const progress = Math.min(typedText.length / referenceText.length, 1) * 100;
+                
+                // Update display
+                timeSpan.textContent = elapsedTime.toFixed(1);
+                accuracySpan.textContent = charAccuracy.toFixed(1);
+                wordAccuracySpan.textContent = wordAccuracy.toFixed(1);
+                wpmSpan.textContent = totalWpm.toFixed(1);
+                correctWpmSpan.textContent = correctWpm.toFixed(1);
+                progressSpan.textContent = `${typedText.length}/${referenceText.length}`;
+                progressFill.style.width = progress + '%';
+                progressFill.textContent = progress.toFixed(1) + '%';
+                
+                // Check completion
+                if (typedText.length >= referenceText.length) {
+                    if (charAccuracy === 100) {
+                        completionMessage.innerHTML = '🎉 Perfect! You completed with 100% accuracy!';
+                        completionMessage.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                    } else {
+                        completionMessage.innerHTML = `✅ Completed! Final accuracy: ${charAccuracy.toFixed(1)}%`;
+                        completionMessage.style.background = 'linear-gradient(135deg, #17a2b8, #138496)';
+                    }
+                    completionMessage.style.display = 'block';
+                } else {
+                    completionMessage.style.display = 'none';
+                }
+            }
+            // END CHANGED
+        }
+        
+        function resetPractice() {
+            startTime = null;
+            typedText = '';
+            referenceDisplay.scrollLeft = 0;
+            completionMessage.style.display = 'none';
+            updateDisplay();
+            referenceDisplay.focus();
+        }
+        
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+        }
+        
+        // Auto-focus on load
+        window.addEventListener('load', () => {
+            referenceDisplay.focus();
+        });
+        
+        // Handle window resize to fix scroll positions
+        window.addEventListener('resize', function() {
+            setTimeout(() => {
+                updateDisplay();
+            }, 100);
+        });
+        
+        // Update stats every 100ms for smooth real-time display
+        setInterval(() => {
+            if (startTime && typedText.length > 0 && typedText.length < referenceText.length) {
+                updateDisplay();
+            }
+        }, 100);
+        
+        async function fetchNews(lang) {
+            const btn = event.target;  // Get the clicked button
+            const originalText = btn.innerHTML;  // Store original button text
+            try {
+                // Show loading state
+                btn.disabled = true;  // Disable button
+                btn.innerHTML = `<span class="loading-spinner"></span>Loading...`;  
+                const wordCount = parseInt(document.getElementById('word-count').value) || 50;
+                
+                // Try multiple proxy services
+                const proxies = [
+                    'https://api.codetabs.com/v1/proxy?quest=',
+                    'https://thingproxy.freeboard.io/fetch/'
+                ];
+                
+                const url = lang === 'vi' ? `https://vnexpress.net/` : `https://e.vnexpress.net/`;
+                let response = null;
+                let proxyUsed = '';
+                
+                // Try each proxy until one works
+                for (let proxy of proxies) {
+                    try {
+                        const proxyUrl = proxy + encodeURIComponent(url);
+                        response = await fetch(proxyUrl);
+                        if (response.ok) {
+                            proxyUsed = proxy;
+                            break;
+                        }
+                    } catch (e) {
+                        console.log(`Proxy ${proxy} failed:`, e.message);
+                        continue;
+                    }
+                }
+                
+                if (!response || !response.ok) {
+                    throw new Error('All proxy services failed');
+                }
+                
+                const text = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                let newsItems = [];
+
+                if (lang === 'vi') {
+                    const articles = doc.querySelectorAll('a.thumb.thumb-5x3');
+                    for (let article of articles) {
+                        const url = article.getAttribute('href');
+                        const title = article.getAttribute('title')?.trim() || '';
+                        if (url && !url.includes('eclick')) {
+                            newsItems.push({url, title, description: ''});
+                        }
+                    }
+                } else {
+                    const articles = doc.querySelectorAll('div.block_folder.row');
+                    for (let article of articles) {
+                        const link = article.querySelector('a.thumb_news_site.thumb_5x3');
+                        const url = link?.getAttribute('href');
+                        const title = link?.getAttribute('title')?.trim() || '';
+                        const description = article.querySelector('div.lead_news_site')?.textContent.trim() || '';
+                        if (url && !url.includes('eclick')) {
+                            newsItems.push({url, title, description});
+                        }
+                    }
+                }
+
+                if (newsItems.length === 0) {
+                    alert('No news found');
+                    return;
+                }
+
+                const randomItem = newsItems[Math.floor(Math.random() * newsItems.length)];
+                const content = await getContent(proxyUsed + encodeURIComponent(randomItem.url), lang);
+                if (!content) {
+                    alert('No content');
+                    return;
+                }
+
+                const words = content.split(/\s+/);
+                const passage = words.slice(0, wordCount).join(' ');
+                referenceInput.value = passage;
+                referenceText = passage;
+                resetPractice();
+            } catch (e) {
+                alert('Error: ' + e.message);
+            } finally {
+                // Reset button state (this runs whether success or error)
+                btn.disabled = false;  // Re-enable button  
+                btn.innerHTML = originalText;  // Restore original text
+            }
+        }
+
+        async function getContent(proxyUrl, lang) {
+            try {
+                console.log(`[${new Date().toLocaleTimeString()}] Fetching content from: ${proxyUrl}`);
+                const response = await fetch(proxyUrl);
+                if (!response.ok) {
+                    console.error(`[${new Date().toLocaleTimeString()}] ❌ HTTP error fetching content! Status: ${response.status}`);
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                console.log(`[${new Date().toLocaleTimeString()}] ✅ Article page loaded successfully`);
+                const text = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                
+                const contentDiv = doc.querySelector(lang === 'vi' ? 'article.fck_detail' : 'div.fck_detail');
+                if (contentDiv) {
+                    const ps = contentDiv.querySelectorAll(lang === 'vi' ? 'p' : 'p.Normal');
+                    console.log(`[${new Date().toLocaleTimeString()}] Found ${ps.length} content paragraphs`);
+                    
+                    let content = '';
+                    for (let p of ps) {
+                        content += p.textContent.trim() + ' ';
+                    }
+                    
+                    const finalContent = content.trim();
+                    console.log(`[${new Date().toLocaleTimeString()}] ✅ Content extracted: ${finalContent.length} characters`);
+                    return finalContent;
+                } else {
+                    console.error(`[${new Date().toLocaleTimeString()}] ❌ Content container not found. Expected: ${lang === 'vi' ? 'article.fck_detail' : 'div.fck_detail'}`);
+                }
+                return '';
+            } catch (e) {
+                console.error(`[${new Date().toLocaleTimeString()}] ❌ Error in getContent:`, e);
+                return '';
+            }
+        }
+    </script>
+</body>
+</html>
